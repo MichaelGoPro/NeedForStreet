@@ -12,9 +12,41 @@ namespace NeedForStreet
 {
     public partial class Form1 : Form
     {
+
+        private Point _position;
+        private bool _dragging;
         public Form1()
         {
             InitializeComponent();
+
+            bg1.MouseDown += MouseClickDown;
+            bg1.MouseUp += MouseClickUp;
+            bg1.MouseMove += MouseClickMove;
+
+            bg2.MouseDown += MouseClickDown;
+            bg2.MouseUp += MouseClickUp;
+            bg2.MouseMove += MouseClickMove;
+        }
+
+        private void MouseClickMove(object sender, MouseEventArgs e)
+        {
+            if(_dragging)
+            {
+                Point currPoint = PointToScreen(new Point(e.X, e.Y));
+                this.Location = new Point(currPoint.X - _position.X, currPoint.Y -_position.Y);
+            }
+        }
+
+        private void MouseClickUp(object sender, MouseEventArgs e)
+        {
+            _dragging = false;
+        }
+
+        private void MouseClickDown(object sender, MouseEventArgs e)
+        {
+            _dragging = true;
+            _position.X = e.X;
+            _position.Y = e.Y;
         }
 
         private void Form1_KeyPress(object sender, KeyPressEventArgs e)
@@ -37,12 +69,12 @@ namespace NeedForStreet
         private void timer1_Tick(object sender, EventArgs e)
         {
             int speed = 3;
-            Road1.Top += speed;
-            Road2.Top += speed;
-            if(Road1.Top >= 1100)
+            bg1.Top += speed;
+            bg2.Top += speed;
+            if(bg1.Top >= 1100)
             {
-                Road1.Top = 0;
-                Road2.Top = -1100;
+                bg1.Top = 0;
+                bg2.Top = -1100;
             }
         }
 
