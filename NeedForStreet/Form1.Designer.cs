@@ -54,7 +54,7 @@
             // 
             this.Car.BackColor = System.Drawing.Color.Transparent;
             this.Car.Image = ((System.Drawing.Image)(resources.GetObject("Car.Image")));
-            this.Car.Location = new System.Drawing.Point(619, 818);
+            this.Car.Location = new System.Drawing.Point(583, 712);
             this.Car.Name = "Car";
             this.Car.Size = new System.Drawing.Size(105, 177);
             this.Car.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -94,6 +94,7 @@
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "NeedForStreet";
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
             this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Form1_KeyPress);
             ((System.ComponentModel.ISupportInitialize)(this.Road1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Car)).EndInit();
