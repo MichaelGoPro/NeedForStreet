@@ -81,22 +81,23 @@ namespace NeedForStreet
         private void Form1_KeyDown(object sender, KeyEventArgs e)
         {
             int speed = 10;
-            if((e.KeyCode == Keys.Left || e.KeyCode == Keys.A) && Car.Left > 80)
+            if((e.KeyCode == Keys.Left || e.KeyCode == Keys.A) && Player.Left > 80)
             {
-                Car.Left -= speed;
+                Player.Left -= speed;
             }
-            else if ((e.KeyCode == Keys.Right || e.KeyCode == Keys.D) && Car.Right < 700)
+            else if ((e.KeyCode == Keys.Right || e.KeyCode == Keys.D) && Player.Right < 700)
             {
-                Car.Left += speed;
+                Player.Left += speed;
             }
-            else if ((e.KeyCode == Keys.Up || e.KeyCode == Keys.W) && Car.Top > 100)
+            else if ((e.KeyCode == Keys.Up || e.KeyCode == Keys.W) && Player.Top > 100)
             {
-                Car.Top -= speed;
+                Player.Top -= speed;
             }
-            else if ((e.KeyCode == Keys.Down || e.KeyCode == Keys.S) && Car.Bottom < 740)
+            else if ((e.KeyCode == Keys.Down || e.KeyCode == Keys.S) && Player.Bottom < 740)
             {
-                Car.Top += speed;
+                Player.Top += speed;
             }
+            else if
         }
     }
 }

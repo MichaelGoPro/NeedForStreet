@@ -31,35 +31,37 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.bg1 = new System.Windows.Forms.PictureBox();
-            this.Car = new System.Windows.Forms.PictureBox();
+            this.Player = new System.Windows.Forms.PictureBox();
             this.timer = new System.Windows.Forms.Timer(this.components);
             this.bg2 = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.bg1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Car)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Player)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bg2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // bg1
             // 
             this.bg1.Image = ((System.Drawing.Image)(resources.GetObject("bg1.Image")));
-            this.bg1.Location = new System.Drawing.Point(0, 0);
+            this.bg1.Location = new System.Drawing.Point(-9, -20);
             this.bg1.Margin = new System.Windows.Forms.Padding(0);
             this.bg1.Name = "bg1";
-            this.bg1.Size = new System.Drawing.Size(1030, 1100);
+            this.bg1.Size = new System.Drawing.Size(1039, 1121);
             this.bg1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.bg1.TabIndex = 4;
             this.bg1.TabStop = false;
             // 
-            // Car
+            // Player
             // 
-            this.Car.BackColor = System.Drawing.Color.Transparent;
-            this.Car.Image = ((System.Drawing.Image)(resources.GetObject("Car.Image")));
-            this.Car.Location = new System.Drawing.Point(583, 712);
-            this.Car.Name = "Car";
-            this.Car.Size = new System.Drawing.Size(105, 177);
-            this.Car.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.Car.TabIndex = 5;
-            this.Car.TabStop = false;
+            this.Player.BackColor = System.Drawing.Color.Transparent;
+            this.Player.Image = ((System.Drawing.Image)(resources.GetObject("Player.Image")));
+            this.Player.Location = new System.Drawing.Point(571, 754);
+            this.Player.Name = "Player";
+            this.Player.Size = new System.Drawing.Size(105, 177);
+            this.Player.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.Player.TabIndex = 5;
+            this.Player.TabStop = false;
             // 
             // timer
             // 
@@ -78,6 +80,17 @@
             this.bg2.TabIndex = 6;
             this.bg2.TabStop = false;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(556, 513);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(220, 111);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 7;
+            this.pictureBox1.TabStop = false;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -85,7 +98,8 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1030, 1100);
-            this.Controls.Add(this.Car);
+            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.Player);
             this.Controls.Add(this.bg1);
             this.Controls.Add(this.bg2);
             this.Cursor = System.Windows.Forms.Cursors.PanNW;
@@ -97,8 +111,9 @@
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
             this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Form1_KeyPress);
             ((System.ComponentModel.ISupportInitialize)(this.bg1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Car)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Player)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bg2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -106,9 +121,10 @@
         #endregion
 
         private System.Windows.Forms.PictureBox bg1;
-        private System.Windows.Forms.PictureBox Car;
+        private System.Windows.Forms.PictureBox Player;
         private System.Windows.Forms.Timer timer;
         private System.Windows.Forms.PictureBox bg2;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
 
