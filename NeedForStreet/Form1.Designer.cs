@@ -76,7 +76,7 @@
             // timer
             // 
             this.timer.Enabled = true;
-            this.timer.Interval = 10;
+            this.timer.Interval = 1;
             this.timer.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // bg2
@@ -94,7 +94,7 @@
             // 
             this.enemy2.BackColor = System.Drawing.Color.Transparent;
             this.enemy2.Image = ((System.Drawing.Image)(resources.GetObject("enemy2.Image")));
-            this.enemy2.Location = new System.Drawing.Point(351, 248);
+            this.enemy2.Location = new System.Drawing.Point(341, 667);
             this.enemy2.Name = "enemy2";
             this.enemy2.Size = new System.Drawing.Size(105, 177);
             this.enemy2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -106,7 +106,7 @@
             // 
             this.enemy1.BackColor = System.Drawing.Color.Transparent;
             this.enemy1.Image = ((System.Drawing.Image)(resources.GetObject("enemy1.Image")));
-            this.enemy1.Location = new System.Drawing.Point(337, -300);
+            this.enemy1.Location = new System.Drawing.Point(337, -250);
             this.enemy1.Name = "enemy1";
             this.enemy1.Size = new System.Drawing.Size(105, 177);
             this.enemy1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -117,7 +117,7 @@
             // 
             this.enemy3.BackColor = System.Drawing.Color.Transparent;
             this.enemy3.Image = ((System.Drawing.Image)(resources.GetObject("enemy3.Image")));
-            this.enemy3.Location = new System.Drawing.Point(156, 12);
+            this.enemy3.Location = new System.Drawing.Point(135, 128);
             this.enemy3.Name = "enemy3";
             this.enemy3.Size = new System.Drawing.Size(105, 177);
             this.enemy3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -128,7 +128,7 @@
             // 
             this.enemy4.BackColor = System.Drawing.Color.Transparent;
             this.enemy4.Image = ((System.Drawing.Image)(resources.GetObject("enemy4.Image")));
-            this.enemy4.Location = new System.Drawing.Point(571, 361);
+            this.enemy4.Location = new System.Drawing.Point(571, -50);
             this.enemy4.Name = "enemy4";
             this.enemy4.Size = new System.Drawing.Size(105, 177);
             this.enemy4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -139,7 +139,7 @@
             // 
             this.enemy6.BackColor = System.Drawing.Color.Transparent;
             this.enemy6.Image = ((System.Drawing.Image)(resources.GetObject("enemy6.Image")));
-            this.enemy6.Location = new System.Drawing.Point(787, 841);
+            this.enemy6.Location = new System.Drawing.Point(787, 461);
             this.enemy6.Name = "enemy6";
             this.enemy6.Size = new System.Drawing.Size(105, 177);
             this.enemy6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -150,7 +150,7 @@
             // 
             this.enemy5.BackColor = System.Drawing.Color.Transparent;
             this.enemy5.Image = ((System.Drawing.Image)(resources.GetObject("enemy5.Image")));
-            this.enemy5.Location = new System.Drawing.Point(787, 42);
+            this.enemy5.Location = new System.Drawing.Point(787, -300);
             this.enemy5.Name = "enemy5";
             this.enemy5.Size = new System.Drawing.Size(105, 177);
             this.enemy5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;

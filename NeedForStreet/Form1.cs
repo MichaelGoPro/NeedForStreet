@@ -16,9 +16,12 @@ namespace NeedForStreet
         private PictureBox[] enemies_left = new PictureBox[3];
         private Point _position;
         private bool _dragging;
+        private Random _delay;
         public Form1()
         {
             InitializeComponent();
+
+            _delay = new Random();
 
             enemies_left[0] = enemy1;
             enemies_left[1] = enemy2;
@@ -90,7 +93,11 @@ namespace NeedForStreet
                 enemies_right[i].Top += enemy_speed / 2;
                 if (enemies_left[i].Top >= 1100)
                 {
-                    enemies_left[i].Top = -50;
+                    enemies_left[i].Top = -50 + _delay.Next(-70, 10);
+                }
+                if (enemies_right[i].Top >= 1100)
+                {
+                    enemies_right[i].Top = -50 + _delay.Next(-70, 10);
                 }
             }
             enemies_left[0].Top += enemy_speed;
@@ -123,8 +130,7 @@ namespace NeedForStreet
             else if ((e.KeyCode == Keys.Down || e.KeyCode == Keys.S) && Player.Bottom < 740)
             {
                 Player.Top += speed;
-            }
-
+            } 
         }
 
         private void enemy2_Click(object sender, EventArgs e)
