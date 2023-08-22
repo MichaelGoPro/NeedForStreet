@@ -12,12 +12,21 @@ namespace NeedForStreet
 {
     public partial class Form1 : Form
     {
-
+        private PictureBox[] enemies_right = new PictureBox[3];
+        private PictureBox[] enemies_left = new PictureBox[3];
         private Point _position;
         private bool _dragging;
         public Form1()
         {
             InitializeComponent();
+
+            enemies_left[0] = enemy1;
+            enemies_left[1] = enemy2;
+            enemies_left[2] = enemy3;
+
+            enemies_right[0] = enemy4;
+            enemies_right[1] = enemy5;
+            enemies_right[2] = enemy6;
 
             bg1.MouseDown += MouseClickDown;
             bg1.MouseUp += MouseClickUp;
@@ -68,14 +77,32 @@ namespace NeedForStreet
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            int speed = 3;
-            bg1.Top += speed;
-            bg2.Top += speed;
-            if(bg1.Top >= 1100)
+
+            int bg_speed = 3;
+            bg1.Top += bg_speed;
+            bg2.Top += bg_speed;
+
+            int enemy_speed = 2;
+
+            for (int i = 0; i < 3; ++i)
+            {
+                enemies_left[i].Top += enemy_speed;
+                enemies_right[i].Top += enemy_speed / 2;
+                if (enemies_left[i].Top >= 1100)
+                {
+                    enemies_left[i].Top = -50;
+                }
+            }
+            enemies_left[0].Top += enemy_speed;
+            enemies_left[1].Top += enemy_speed;
+            enemies_left[2].Top += enemy_speed;
+
+            if (bg1.Top >= 1100)
             {
                 bg1.Top = 0;
                 bg2.Top = -1100;
             }
+            
         }
 
         private void Form1_KeyDown(object sender, KeyEventArgs e)
@@ -97,7 +124,12 @@ namespace NeedForStreet
             {
                 Player.Top += speed;
             }
-            else if
+
+        }
+
+        private void enemy2_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
