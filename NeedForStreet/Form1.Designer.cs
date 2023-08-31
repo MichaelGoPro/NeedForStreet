@@ -40,6 +40,7 @@
             this.enemy4 = new System.Windows.Forms.PictureBox();
             this.enemy6 = new System.Windows.Forms.PictureBox();
             this.enemy5 = new System.Windows.Forms.PictureBox();
+            this.box_score = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.bg1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Player)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bg2)).BeginInit();
@@ -54,7 +55,7 @@
             // bg1
             // 
             this.bg1.Image = ((System.Drawing.Image)(resources.GetObject("bg1.Image")));
-            this.bg1.Location = new System.Drawing.Point(-9, -20);
+            this.bg1.Location = new System.Drawing.Point(-5, -20);
             this.bg1.Margin = new System.Windows.Forms.Padding(0);
             this.bg1.Name = "bg1";
             this.bg1.Size = new System.Drawing.Size(1039, 1121);
@@ -76,7 +77,7 @@
             // timer
             // 
             this.timer.Enabled = true;
-            this.timer.Interval = 1;
+            this.timer.Interval = 5;
             this.timer.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // bg2
@@ -157,6 +158,13 @@
             this.enemy5.TabIndex = 12;
             this.enemy5.TabStop = false;
             // 
+            // box_score
+            // 
+            this.box_score.Location = new System.Drawing.Point(897, 871);
+            this.box_score.Name = "box_score";
+            this.box_score.Size = new System.Drawing.Size(100, 22);
+            this.box_score.TabIndex = 13;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -164,6 +172,7 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1030, 1100);
+            this.Controls.Add(this.box_score);
             this.Controls.Add(this.enemy5);
             this.Controls.Add(this.enemy6);
             this.Controls.Add(this.enemy4);
@@ -191,6 +200,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.enemy6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.enemy5)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -206,6 +216,7 @@
         private System.Windows.Forms.PictureBox enemy4;
         private System.Windows.Forms.PictureBox enemy6;
         private System.Windows.Forms.PictureBox enemy5;
+        private System.Windows.Forms.TextBox box_score;
     }
 }
 

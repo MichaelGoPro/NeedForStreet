@@ -12,6 +12,9 @@ namespace NeedForStreet
 {
     public partial class Form1 : Form
     {
+        private int _score = 0;
+        private int bg_speed = 2;
+
         private PictureBox[] enemies_right = new PictureBox[3];
         private PictureBox[] enemies_left = new PictureBox[3];
         private Point _position;
@@ -22,6 +25,8 @@ namespace NeedForStreet
             InitializeComponent();
 
             _delay = new Random();
+
+            box_score.Enabled = false;
 
             enemies_left[0] = enemy1;
             enemies_left[1] = enemy2;
@@ -80,8 +85,10 @@ namespace NeedForStreet
 
         private void timer1_Tick(object sender, EventArgs e)
         {
+            _score += 1;
 
-            int bg_speed = 3;
+            box_score.Text = "SCORE: " + _score;
+
             bg1.Top += bg_speed;
             bg2.Top += bg_speed;
 
@@ -114,7 +121,7 @@ namespace NeedForStreet
 
         private void Form1_KeyDown(object sender, KeyEventArgs e)
         {
-            int speed = 10;
+            int speed = 5;
             if((e.KeyCode == Keys.Left || e.KeyCode == Keys.A) && Player.Left > 80)
             {
                 Player.Left -= speed;
@@ -134,6 +141,11 @@ namespace NeedForStreet
         }
 
         private void enemy2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
         {
 
         }
