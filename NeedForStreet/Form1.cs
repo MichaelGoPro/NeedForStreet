@@ -26,6 +26,7 @@ namespace NeedForStreet
 
             _delay = new Random();
 
+            
             box_score.Enabled = false;
 
             enemies_left[0] = enemy1;
@@ -85,14 +86,12 @@ namespace NeedForStreet
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            _score += 1;
-
             box_score.Text = "SCORE: " + _score;
 
             bg1.Top += bg_speed;
             bg2.Top += bg_speed;
 
-            int enemy_speed = 2;
+            int enemy_speed = 4;
 
             for (int i = 0; i < 3; ++i)
             {
@@ -100,16 +99,15 @@ namespace NeedForStreet
                 enemies_right[i].Top += enemy_speed / 2;
                 if (enemies_left[i].Top >= 1100)
                 {
+                    _score += 1;
                     enemies_left[i].Top = -50 + _delay.Next(-70, 10);
                 }
                 if (enemies_right[i].Top >= 1100)
                 {
+                    _score += 1;
                     enemies_right[i].Top = -50 + _delay.Next(-70, 10);
                 }
             }
-            enemies_left[0].Top += enemy_speed;
-            enemies_left[1].Top += enemy_speed;
-            enemies_left[2].Top += enemy_speed;
 
             if (bg1.Top >= 1100)
             {
@@ -148,6 +146,10 @@ namespace NeedForStreet
         private void button1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void score_timer_Tick(object sender, EventArgs e)
+        {
         }
     }
 }

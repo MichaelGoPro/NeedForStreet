@@ -32,7 +32,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.bg1 = new System.Windows.Forms.PictureBox();
             this.Player = new System.Windows.Forms.PictureBox();
-            this.timer = new System.Windows.Forms.Timer(this.components);
+            this.main_timer = new System.Windows.Forms.Timer(this.components);
             this.bg2 = new System.Windows.Forms.PictureBox();
             this.enemy2 = new System.Windows.Forms.PictureBox();
             this.enemy1 = new System.Windows.Forms.PictureBox();
@@ -74,11 +74,11 @@
             this.Player.TabIndex = 5;
             this.Player.TabStop = false;
             // 
-            // timer
+            // main_timer
             // 
-            this.timer.Enabled = true;
-            this.timer.Interval = 5;
-            this.timer.Tick += new System.EventHandler(this.timer1_Tick);
+            this.main_timer.Enabled = true;
+            this.main_timer.Interval = 5;
+            this.main_timer.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // bg2
             // 
@@ -160,10 +160,12 @@
             // 
             // box_score
             // 
-            this.box_score.Location = new System.Drawing.Point(897, 871);
+            this.box_score.BackColor = System.Drawing.Color.Gainsboro;
+            this.box_score.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.box_score.Location = new System.Drawing.Point(892, 822);
             this.box_score.Name = "box_score";
-            this.box_score.Size = new System.Drawing.Size(100, 22);
-            this.box_score.TabIndex = 13;
+            this.box_score.Size = new System.Drawing.Size(114, 26);
+            this.box_score.TabIndex = 20;
             // 
             // Form1
             // 
@@ -185,6 +187,7 @@
             this.Cursor = System.Windows.Forms.Cursors.PanNW;
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "NeedForStreet";
@@ -208,7 +211,7 @@
 
         private System.Windows.Forms.PictureBox bg1;
         private System.Windows.Forms.PictureBox Player;
-        private System.Windows.Forms.Timer timer;
+        private System.Windows.Forms.Timer main_timer;
         private System.Windows.Forms.PictureBox bg2;
         private System.Windows.Forms.PictureBox enemy2;
         private System.Windows.Forms.PictureBox enemy1;
