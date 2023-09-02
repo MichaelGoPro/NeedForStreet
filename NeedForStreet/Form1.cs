@@ -29,7 +29,6 @@ namespace NeedForStreet
 
             _delay = new Random();
 
-            
             box_score.Enabled = false;
 
             enemies_left[0] = enemy1;
@@ -88,13 +87,14 @@ namespace NeedForStreet
             {
                 enemies_left[i].Top += enemy_speed;
                 enemies_right[i].Top += enemy_speed / 2;
-                if (enemies_left[i].Top >= 1100)
+                if (enemies_left[i].Top >= 1110)
                 {
                     _score += 1;
                     Game_Speed_Change();
                     enemies_left[i].Top = -50 + _delay.Next(-70, 10);
+                   // enemies_left[i].Right = 
                 }
-                if (enemies_right[i].Top >= 1100)
+                if (enemies_right[i].Top >= 1110)
                 {
                     _score += 1;
                     Game_Speed_Change();
@@ -137,7 +137,7 @@ namespace NeedForStreet
             {
                 Player.Top -= player_speed;
             }
-            else if ((e.KeyCode == Keys.Down || e.KeyCode == Keys.S) && Player.Bottom < 740)
+            else if ((e.KeyCode == Keys.Down || e.KeyCode == Keys.S) && Player.Bottom < 700)
             {
                 Player.Top += player_speed;
             } 

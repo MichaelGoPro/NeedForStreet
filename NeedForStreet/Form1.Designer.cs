@@ -55,7 +55,7 @@
             // bg1
             // 
             this.bg1.Image = ((System.Drawing.Image)(resources.GetObject("bg1.Image")));
-            this.bg1.Location = new System.Drawing.Point(0, 10);
+            this.bg1.Location = new System.Drawing.Point(0, 0);
             this.bg1.Margin = new System.Windows.Forms.Padding(0);
             this.bg1.Name = "bg1";
             this.bg1.Size = new System.Drawing.Size(1030, 1100);
@@ -67,7 +67,7 @@
             // 
             this.Player.BackColor = System.Drawing.Color.Transparent;
             this.Player.Image = ((System.Drawing.Image)(resources.GetObject("Player.Image")));
-            this.Player.Location = new System.Drawing.Point(571, 754);
+            this.Player.Location = new System.Drawing.Point(571, 667);
             this.Player.Name = "Player";
             this.Player.Size = new System.Drawing.Size(105, 177);
             this.Player.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -128,7 +128,7 @@
             // 
             this.enemy4.BackColor = System.Drawing.Color.Transparent;
             this.enemy4.Image = ((System.Drawing.Image)(resources.GetObject("enemy4.Image")));
-            this.enemy4.Location = new System.Drawing.Point(571, -50);
+            this.enemy4.Location = new System.Drawing.Point(571, 160);
             this.enemy4.Name = "enemy4";
             this.enemy4.Size = new System.Drawing.Size(105, 177);
             this.enemy4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -139,7 +139,7 @@
             // 
             this.enemy6.BackColor = System.Drawing.Color.Transparent;
             this.enemy6.Image = ((System.Drawing.Image)(resources.GetObject("enemy6.Image")));
-            this.enemy6.Location = new System.Drawing.Point(787, 461);
+            this.enemy6.Location = new System.Drawing.Point(784, 667);
             this.enemy6.Name = "enemy6";
             this.enemy6.Size = new System.Drawing.Size(105, 177);
             this.enemy6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -159,10 +159,12 @@
             // 
             // box_score
             // 
-            this.box_score.BackColor = System.Drawing.Color.Gainsboro;
-            this.box_score.Font = new System.Drawing.Font("Segoe Script", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.box_score.BackColor = System.Drawing.SystemColors.Menu;
+            this.box_score.Font = new System.Drawing.Font("Segoe Script", 16.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.box_score.Location = new System.Drawing.Point(838, 822);
+            this.box_score.Margin = new System.Windows.Forms.Padding(0);
             this.box_score.Name = "box_score";
+            this.box_score.ReadOnly = true;
             this.box_score.Size = new System.Drawing.Size(180, 51);
             this.box_score.TabIndex = 20;
             // 
