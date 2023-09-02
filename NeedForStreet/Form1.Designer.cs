@@ -41,6 +41,11 @@
             this.enemy6 = new System.Windows.Forms.PictureBox();
             this.enemy5 = new System.Windows.Forms.PictureBox();
             this.box_score = new System.Windows.Forms.TextBox();
+            this.bg3 = new System.Windows.Forms.PictureBox();
+            this.label_lose = new System.Windows.Forms.Label();
+            this.label_record = new System.Windows.Forms.Label();
+            this.label_end_score = new System.Windows.Forms.Label();
+            this.box_record = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.bg1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Player)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bg2)).BeginInit();
@@ -50,6 +55,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.enemy4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.enemy6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.enemy5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bg3)).BeginInit();
             this.SuspendLayout();
             // 
             // bg1
@@ -95,7 +101,7 @@
             // 
             this.enemy2.BackColor = System.Drawing.Color.Transparent;
             this.enemy2.Image = ((System.Drawing.Image)(resources.GetObject("enemy2.Image")));
-            this.enemy2.Location = new System.Drawing.Point(341, 667);
+            this.enemy2.Location = new System.Drawing.Point(345, 789);
             this.enemy2.Name = "enemy2";
             this.enemy2.Size = new System.Drawing.Size(105, 177);
             this.enemy2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -117,7 +123,7 @@
             // 
             this.enemy3.BackColor = System.Drawing.Color.Transparent;
             this.enemy3.Image = ((System.Drawing.Image)(resources.GetObject("enemy3.Image")));
-            this.enemy3.Location = new System.Drawing.Point(135, 128);
+            this.enemy3.Location = new System.Drawing.Point(141, 245);
             this.enemy3.Name = "enemy3";
             this.enemy3.Size = new System.Drawing.Size(105, 177);
             this.enemy3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -160,13 +166,77 @@
             // box_score
             // 
             this.box_score.BackColor = System.Drawing.SystemColors.Menu;
-            this.box_score.Font = new System.Drawing.Font("Segoe Script", 16.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.box_score.Location = new System.Drawing.Point(838, 822);
+            this.box_score.Enabled = false;
+            this.box_score.Font = new System.Drawing.Font("Segoe Print", 16.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.box_score.Location = new System.Drawing.Point(804, 822);
             this.box_score.Margin = new System.Windows.Forms.Padding(0);
             this.box_score.Name = "box_score";
             this.box_score.ReadOnly = true;
-            this.box_score.Size = new System.Drawing.Size(180, 51);
+            this.box_score.Size = new System.Drawing.Size(215, 55);
             this.box_score.TabIndex = 20;
+            this.box_score.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // bg3
+            // 
+            this.bg3.Image = ((System.Drawing.Image)(resources.GetObject("bg3.Image")));
+            this.bg3.Location = new System.Drawing.Point(0, -2200);
+            this.bg3.Margin = new System.Windows.Forms.Padding(0);
+            this.bg3.Name = "bg3";
+            this.bg3.Size = new System.Drawing.Size(1030, 1100);
+            this.bg3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.bg3.TabIndex = 21;
+            this.bg3.TabStop = false;
+            // 
+            // label_lose
+            // 
+            this.label_lose.AutoSize = true;
+            this.label_lose.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label_lose.Enabled = false;
+            this.label_lose.Font = new System.Drawing.Font("Segoe Print", 54F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label_lose.ForeColor = System.Drawing.Color.Red;
+            this.label_lose.Location = new System.Drawing.Point(252, 263);
+            this.label_lose.Name = "label_lose";
+            this.label_lose.Size = new System.Drawing.Size(526, 159);
+            this.label_lose.TabIndex = 22;
+            this.label_lose.Text = "CRASHED";
+            // 
+            // label_record
+            // 
+            this.label_record.AutoSize = true;
+            this.label_record.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label_record.Enabled = false;
+            this.label_record.Font = new System.Drawing.Font("Segoe Print", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label_record.ForeColor = System.Drawing.Color.Red;
+            this.label_record.Location = new System.Drawing.Point(261, 437);
+            this.label_record.Name = "label_record";
+            this.label_record.Size = new System.Drawing.Size(505, 105);
+            this.label_record.TabIndex = 23;
+            this.label_record.Text = "NEW RECORD!";
+            // 
+            // label_end_score
+            // 
+            this.label_end_score.AutoSize = true;
+            this.label_end_score.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label_end_score.Enabled = false;
+            this.label_end_score.Font = new System.Drawing.Font("Segoe Print", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label_end_score.ForeColor = System.Drawing.Color.Red;
+            this.label_end_score.Location = new System.Drawing.Point(327, 559);
+            this.label_end_score.Name = "label_end_score";
+            this.label_end_score.Size = new System.Drawing.Size(300, 105);
+            this.label_end_score.TabIndex = 24;
+            this.label_end_score.Text = "SCORE: ";
+            // 
+            // box_record
+            // 
+            this.box_record.BackColor = System.Drawing.SystemColors.Menu;
+            this.box_record.Enabled = false;
+            this.box_record.Font = new System.Drawing.Font("Segoe Print", 16.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.box_record.Location = new System.Drawing.Point(9, 822);
+            this.box_record.Margin = new System.Windows.Forms.Padding(0);
+            this.box_record.Name = "box_record";
+            this.box_record.ReadOnly = true;
+            this.box_record.Size = new System.Drawing.Size(215, 55);
+            this.box_record.TabIndex = 25;
             // 
             // Form1
             // 
@@ -175,6 +245,10 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1030, 1100);
+            this.Controls.Add(this.box_record);
+            this.Controls.Add(this.label_end_score);
+            this.Controls.Add(this.label_record);
+            this.Controls.Add(this.label_lose);
             this.Controls.Add(this.box_score);
             this.Controls.Add(this.enemy5);
             this.Controls.Add(this.enemy6);
@@ -185,6 +259,7 @@
             this.Controls.Add(this.Player);
             this.Controls.Add(this.bg1);
             this.Controls.Add(this.bg2);
+            this.Controls.Add(this.bg3);
             this.Cursor = System.Windows.Forms.Cursors.PanNW;
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -203,6 +278,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.enemy4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.enemy6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.enemy5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bg3)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -221,6 +297,11 @@
         private System.Windows.Forms.PictureBox enemy6;
         private System.Windows.Forms.PictureBox enemy5;
         private System.Windows.Forms.TextBox box_score;
+        private System.Windows.Forms.PictureBox bg3;
+        private System.Windows.Forms.Label label_lose;
+        private System.Windows.Forms.Label label_record;
+        private System.Windows.Forms.Label label_end_score;
+        private System.Windows.Forms.TextBox box_record;
     }
 }
 
