@@ -101,7 +101,6 @@
             this.enemy2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.enemy2.TabIndex = 7;
             this.enemy2.TabStop = false;
-            this.enemy2.Click += new System.EventHandler(this.enemy2_Click);
             // 
             // enemy1
             // 

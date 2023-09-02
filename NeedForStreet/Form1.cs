@@ -13,8 +13,10 @@ namespace NeedForStreet
     public partial class Form1 : Form
     {
         private int _score = 0;
+
         private int bg_speed = 2;
         private int enemy_speed = 4;
+        private int player_speed = 5;
 
         private PictureBox[] enemies_right = new PictureBox[3];
         private PictureBox[] enemies_left = new PictureBox[3];
@@ -74,17 +76,6 @@ namespace NeedForStreet
                 this.Close();
         }
 
-
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void pictureBox2_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void timer1_Tick(object sender, EventArgs e)
         {
             box_score.Text = "SCORE: " + _score;
@@ -121,46 +112,35 @@ namespace NeedForStreet
 
         private void Game_Speed_Change()
         {
-            if(_score % 5 == 0)
+            if (_score % 5 == 0)
             {
                 bg_speed++;
                 enemy_speed += 2;
+            }
+            else if (_score % 10 == 0)
+            {
+                player_speed++;
             }
         }
 
         private void Form1_KeyDown(object sender, KeyEventArgs e)
         {
-            int speed = 5;
             if((e.KeyCode == Keys.Left || e.KeyCode == Keys.A) && Player.Left > 80)
             {
-                Player.Left -= speed;
+                Player.Left -= player_speed;
             }
             else if ((e.KeyCode == Keys.Right || e.KeyCode == Keys.D) && Player.Right < 700)
             {
-                Player.Left += speed;
+                Player.Left += player_speed;
             }
             else if ((e.KeyCode == Keys.Up || e.KeyCode == Keys.W) && Player.Top > 100)
             {
-                Player.Top -= speed;
+                Player.Top -= player_speed;
             }
             else if ((e.KeyCode == Keys.Down || e.KeyCode == Keys.S) && Player.Bottom < 740)
             {
-                Player.Top += speed;
+                Player.Top += player_speed;
             } 
-        }
-
-        private void enemy2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void score_timer_Tick(object sender, EventArgs e)
-        {
         }
     }
 }
