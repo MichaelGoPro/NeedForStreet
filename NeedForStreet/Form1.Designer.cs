@@ -55,10 +55,10 @@
             // bg1
             // 
             this.bg1.Image = ((System.Drawing.Image)(resources.GetObject("bg1.Image")));
-            this.bg1.Location = new System.Drawing.Point(-5, -20);
+            this.bg1.Location = new System.Drawing.Point(0, 10);
             this.bg1.Margin = new System.Windows.Forms.Padding(0);
             this.bg1.Name = "bg1";
-            this.bg1.Size = new System.Drawing.Size(1039, 1121);
+            this.bg1.Size = new System.Drawing.Size(1030, 1100);
             this.bg1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.bg1.TabIndex = 4;
             this.bg1.TabStop = false;
@@ -161,10 +161,10 @@
             // box_score
             // 
             this.box_score.BackColor = System.Drawing.Color.Gainsboro;
-            this.box_score.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.box_score.Location = new System.Drawing.Point(892, 822);
+            this.box_score.Font = new System.Drawing.Font("Segoe Script", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.box_score.Location = new System.Drawing.Point(838, 822);
             this.box_score.Name = "box_score";
-            this.box_score.Size = new System.Drawing.Size(114, 26);
+            this.box_score.Size = new System.Drawing.Size(180, 51);
             this.box_score.TabIndex = 20;
             // 
             // Form1

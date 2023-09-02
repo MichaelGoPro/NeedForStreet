@@ -14,6 +14,7 @@ namespace NeedForStreet
     {
         private int _score = 0;
         private int bg_speed = 2;
+        private int enemy_speed = 4;
 
         private PictureBox[] enemies_right = new PictureBox[3];
         private PictureBox[] enemies_left = new PictureBox[3];
@@ -91,7 +92,6 @@ namespace NeedForStreet
             bg1.Top += bg_speed;
             bg2.Top += bg_speed;
 
-            int enemy_speed = 4;
 
             for (int i = 0; i < 3; ++i)
             {
@@ -100,11 +100,13 @@ namespace NeedForStreet
                 if (enemies_left[i].Top >= 1100)
                 {
                     _score += 1;
+                    Game_Speed_Change();
                     enemies_left[i].Top = -50 + _delay.Next(-70, 10);
                 }
                 if (enemies_right[i].Top >= 1100)
                 {
                     _score += 1;
+                    Game_Speed_Change();
                     enemies_right[i].Top = -50 + _delay.Next(-70, 10);
                 }
             }
@@ -115,6 +117,15 @@ namespace NeedForStreet
                 bg2.Top = -1100;
             }
             
+        }
+
+        private void Game_Speed_Change()
+        {
+            if(_score % 5 == 0)
+            {
+                bg_speed++;
+                enemy_speed += 2;
+            }
         }
 
         private void Form1_KeyDown(object sender, KeyEventArgs e)
