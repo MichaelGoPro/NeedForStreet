@@ -20,7 +20,8 @@ namespace NeedForStreet
         private int enemy_speed = 4;
         private int player_speed = 5;
 
-        private Image[] cars_images = new Image[7];
+        private Image[] cars_left_images = new Image[7];
+        private Image[] cars_right_images = new Image[7];
         private PictureBox[] enemies_right = new PictureBox[3];
         private PictureBox[] enemies_left = new PictureBox[3];
         private PictureBox[] background_fields = new PictureBox[3];
@@ -57,13 +58,21 @@ namespace NeedForStreet
             background_fields[1] = bg2;
             background_fields[2] = bg3;
 
-            cars_images[0] = System.Drawing.Image.FromFile(path + "\\Images\\Cars\\car_3_01.png");
-            cars_images[1] = System.Drawing.Image.FromFile(path + "\\Images\\Cars\\car_4_01.png");
-            cars_images[2] = System.Drawing.Image.FromFile(path + "\\Images\\Cars\\car_5_01.png");
-            cars_images[3] = System.Drawing.Image.FromFile(path + "\\Images\\Cars\\car_6_01.png");
-            cars_images[4] = System.Drawing.Image.FromFile(path + "\\Images\\Cars\\car_7_01.png");
-            cars_images[5] = System.Drawing.Image.FromFile(path + "\\Images\\Cars\\car_8_01.png");
-            cars_images[6] = System.Drawing.Image.FromFile(path + "\\Images\\Cars\\car_9_01.png");
+            cars_right_images[0] = System.Drawing.Image.FromFile(path + "\\Images\\Cars\\car_3_01.png");
+            cars_right_images[1] = System.Drawing.Image.FromFile(path + "\\Images\\Cars\\car_4_01.png");
+            cars_right_images[2] = System.Drawing.Image.FromFile(path + "\\Images\\Cars\\car_5_01.png");
+            cars_right_images[3] = System.Drawing.Image.FromFile(path + "\\Images\\Cars\\car_6_01.png");
+            cars_right_images[4] = System.Drawing.Image.FromFile(path + "\\Images\\Cars\\car_7_01.png");
+            cars_right_images[5] = System.Drawing.Image.FromFile(path + "\\Images\\Cars\\car_8_01.png");
+            cars_right_images[6] = System.Drawing.Image.FromFile(path + "\\Images\\Cars\\car_9_01.png");
+            
+            cars_left_images[0] = System.Drawing.Image.FromFile(path + "\\Images\\Cars\\car_3_02.png");
+            cars_left_images[1] = System.Drawing.Image.FromFile(path + "\\Images\\Cars\\car_4_02.png");
+            cars_left_images[2] = System.Drawing.Image.FromFile(path + "\\Images\\Cars\\car_5_02.png");
+            cars_left_images[3] = System.Drawing.Image.FromFile(path + "\\Images\\Cars\\car_6_02.png");
+            cars_left_images[4] = System.Drawing.Image.FromFile(path + "\\Images\\Cars\\car_7_02.png");
+            cars_left_images[5] = System.Drawing.Image.FromFile(path + "\\Images\\Cars\\car_8_02.png");
+            cars_left_images[6] = System.Drawing.Image.FromFile(path + "\\Images\\Cars\\car_9_02.png");
 
             for (int i = 0; i < 3; i++)
             {
@@ -130,15 +139,15 @@ namespace NeedForStreet
 
         private void Enemy_Spown(PictureBox enemy, bool rotation)
         {
-            if(rotation)
+            if (rotation)
             {
-                Image tmp_image = cars_images[_car_image.Next(0, 6)];
-                tmp_image.RotateFlip(RotateFlipType.Rotate180FlipNone);
+                Image tmp_image = cars_left_images[_car_image.Next(0, 6)];
                 enemy.Image = tmp_image;
             }
             else
             {
-                enemy.Image = cars_images[_car_image.Next(0, 6)];
+                Image tmp_image = cars_right_images[_car_image.Next(0, 6)];
+                enemy.Image = tmp_image;
             }
             _score += 1;
             Game_Speed_Change();
