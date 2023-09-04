@@ -1,23 +1,24 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.IO;
 using System.Windows.Forms;
 
 namespace NeedForStreet
 {
     public partial class Form1 : Form
     {
+        private const string path = "C:\\Users\\MikhailS\\source\\repos\\NeedForStreet\\NeedForStreet\\Record.txt";
+        private const int enemies_delay1 = -300;
+        private const int enemies_delay2 = 10;
+
+        private StreamReader _reader;
+
         private int _score = 0;
+        private int _record;
 
         private int bg_speed = 2;
         private int enemy_speed = 4;
         private int player_speed = 5;
-        private int enemies_delay = -100;
 
         private PictureBox[] enemies_right = new PictureBox[3];
         private PictureBox[] enemies_left = new PictureBox[3];
@@ -35,8 +36,11 @@ namespace NeedForStreet
             label_lose.Visible = false;  
             label_end_score.Visible = false;  
             label_record.Visible = false;
+            button_play.Visible = false;
 
-            box_record.Text = "RECORD: 0";
+            _reader = new StreamReader(path);
+            _record = Int32.Parse(_reader.ReadLine());
+            box_record.Text = "RECORD: " + _record;
 
             enemies_left[0] = enemy1;
             enemies_left[1] = enemy2;
@@ -106,13 +110,13 @@ namespace NeedForStreet
                 {
                     _score += 1;
                     Game_Speed_Change();
-                    enemies_left[i].Top = -50 + _delay.Next(enemies_delay, enemies_delay + 100); 
+                    enemies_left[i].Top = -50 + _delay.Next(enemies_delay1, enemies_delay2); 
                 }
                 if (enemies_right[i].Top >= 1110)
                 {
                     _score += 1;
                     Game_Speed_Change();
-                    enemies_right[i].Top = -50 + _delay.Next(enemies_delay, enemies_delay + 100);
+                    enemies_right[i].Top = -50 + _delay.Next(enemies_delay1, enemies_delay2);
                 }
             }
         }
@@ -126,7 +130,6 @@ namespace NeedForStreet
             }
             else if (_score % 10 == 0)
             {
-                enemies_delay -= 50;
                 player_speed++;
             }
         }

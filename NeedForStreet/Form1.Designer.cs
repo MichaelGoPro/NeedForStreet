@@ -46,6 +46,7 @@
             this.label_record = new System.Windows.Forms.Label();
             this.label_end_score = new System.Windows.Forms.Label();
             this.box_record = new System.Windows.Forms.TextBox();
+            this.button_play = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.bg1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Player)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bg2)).BeginInit();
@@ -191,12 +192,13 @@
             // 
             this.label_lose.AutoSize = true;
             this.label_lose.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label_lose.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.label_lose.Enabled = false;
-            this.label_lose.Font = new System.Drawing.Font("Segoe Print", 54F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label_lose.Font = new System.Drawing.Font("Segoe Print", 55F, System.Drawing.FontStyle.Bold);
             this.label_lose.ForeColor = System.Drawing.Color.Red;
             this.label_lose.Location = new System.Drawing.Point(252, 263);
             this.label_lose.Name = "label_lose";
-            this.label_lose.Size = new System.Drawing.Size(526, 159);
+            this.label_lose.Size = new System.Drawing.Size(542, 165);
             this.label_lose.TabIndex = 22;
             this.label_lose.Text = "CRASHED";
             // 
@@ -204,12 +206,14 @@
             // 
             this.label_record.AutoSize = true;
             this.label_record.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label_record.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.label_record.Cursor = System.Windows.Forms.Cursors.PanNW;
             this.label_record.Enabled = false;
-            this.label_record.Font = new System.Drawing.Font("Segoe Print", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label_record.Font = new System.Drawing.Font("Segoe Print", 38F, System.Drawing.FontStyle.Bold);
             this.label_record.ForeColor = System.Drawing.Color.Red;
-            this.label_record.Location = new System.Drawing.Point(261, 437);
+            this.label_record.Location = new System.Drawing.Point(252, 567);
             this.label_record.Name = "label_record";
-            this.label_record.Size = new System.Drawing.Size(505, 105);
+            this.label_record.Size = new System.Drawing.Size(542, 114);
             this.label_record.TabIndex = 23;
             this.label_record.Text = "NEW RECORD!";
             // 
@@ -217,12 +221,13 @@
             // 
             this.label_end_score.AutoSize = true;
             this.label_end_score.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label_end_score.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.label_end_score.Enabled = false;
             this.label_end_score.Font = new System.Drawing.Font("Segoe Print", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label_end_score.ForeColor = System.Drawing.Color.Red;
-            this.label_end_score.Location = new System.Drawing.Point(327, 559);
+            this.label_end_score.Location = new System.Drawing.Point(252, 444);
             this.label_end_score.Name = "label_end_score";
-            this.label_end_score.Size = new System.Drawing.Size(300, 105);
+            this.label_end_score.Size = new System.Drawing.Size(302, 107);
             this.label_end_score.TabIndex = 24;
             this.label_end_score.Text = "SCORE: ";
             // 
@@ -238,6 +243,18 @@
             this.box_record.Size = new System.Drawing.Size(215, 55);
             this.box_record.TabIndex = 25;
             // 
+            // button_play
+            // 
+            this.button_play.AllowDrop = true;
+            this.button_play.BackColor = System.Drawing.Color.LimeGreen;
+            this.button_play.Font = new System.Drawing.Font("Segoe Print", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.button_play.Location = new System.Drawing.Point(571, 444);
+            this.button_play.Name = "button_play";
+            this.button_play.Size = new System.Drawing.Size(222, 107);
+            this.button_play.TabIndex = 26;
+            this.button_play.Text = "PLAY";
+            this.button_play.UseVisualStyleBackColor = false;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -245,6 +262,7 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1030, 1100);
+            this.Controls.Add(this.button_play);
             this.Controls.Add(this.box_record);
             this.Controls.Add(this.label_end_score);
             this.Controls.Add(this.label_record);
@@ -302,6 +320,7 @@
         private System.Windows.Forms.Label label_record;
         private System.Windows.Forms.Label label_end_score;
         private System.Windows.Forms.TextBox box_record;
+        private System.Windows.Forms.Button button_play;
     }
 }
 
