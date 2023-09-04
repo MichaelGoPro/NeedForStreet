@@ -7,7 +7,7 @@ namespace NeedForStreet
 {
     public partial class Form1 : Form
     {
-        private const string path = "C:\\Users\\MikhailS\\source\\repos\\NeedForStreet\\NeedForStreet\\Record.txt";
+        private const string path = "C:\\Users\\MikhailS\\source\\repos\\NeedForStreet\\NeedForStreet";
         private const int enemies_delay1 = -300;
         private const int enemies_delay2 = 10;
 
@@ -20,6 +20,7 @@ namespace NeedForStreet
         private int enemy_speed = 4;
         private int player_speed = 5;
 
+        private Image[] cars_images = new Image[7];
         private PictureBox[] enemies_right = new PictureBox[3];
         private PictureBox[] enemies_left = new PictureBox[3];
         private PictureBox[] background_fields = new PictureBox[3];
@@ -27,18 +28,20 @@ namespace NeedForStreet
         private Point _position;
         private bool _dragging;
         private Random _delay;
+        private Random _car_image;
         public Form1()
         {
             InitializeComponent();
 
             _delay = new Random();
+            _car_image = new Random();
 
             label_lose.Visible = false;  
             label_end_score.Visible = false;  
             label_record.Visible = false;
             button_play.Visible = false;
 
-            _reader = new StreamReader(path);
+            _reader = new StreamReader(path + "\\Record.txt");
             _record = Int32.Parse(_reader.ReadLine());
             box_record.Text = "RECORD: " + _record;
 
@@ -54,9 +57,17 @@ namespace NeedForStreet
             background_fields[1] = bg2;
             background_fields[2] = bg3;
 
-            for(int i = 0; i < 3; i++)
+            cars_images[0] = System.Drawing.Image.FromFile(path + "\\Images\\Cars\\car_3_01.png");
+            cars_images[1] = System.Drawing.Image.FromFile(path + "\\Images\\Cars\\car_4_01.png");
+            cars_images[2] = System.Drawing.Image.FromFile(path + "\\Images\\Cars\\car_5_01.png");
+            cars_images[3] = System.Drawing.Image.FromFile(path + "\\Images\\Cars\\car_6_01.png");
+            cars_images[4] = System.Drawing.Image.FromFile(path + "\\Images\\Cars\\car_7_01.png");
+            cars_images[5] = System.Drawing.Image.FromFile(path + "\\Images\\Cars\\car_8_01.png");
+            cars_images[6] = System.Drawing.Image.FromFile(path + "\\Images\\Cars\\car_9_01.png");
+
+            for (int i = 0; i < 3; i++)
             {
-                background_fields[i].MouseDown += MouseClickDown;
+                background_fields[i].MouseDown += MouseClickDown;   
                 background_fields[i].MouseUp += MouseClickUp;
                 background_fields[i].MouseMove += MouseClickMove;
             }
@@ -108,17 +119,30 @@ namespace NeedForStreet
                 enemies_right[i].Top += enemy_speed / 2;
                 if (enemies_left[i].Top >= 1110)
                 {
-                    _score += 1;
-                    Game_Speed_Change();
-                    enemies_left[i].Top = -50 + _delay.Next(enemies_delay1, enemies_delay2); 
+                    Enemy_Spown(enemies_left[i], true);
                 }
                 if (enemies_right[i].Top >= 1110)
                 {
-                    _score += 1;
-                    Game_Speed_Change();
-                    enemies_right[i].Top = -50 + _delay.Next(enemies_delay1, enemies_delay2);
+                    Enemy_Spown(enemies_right[i], false);
                 }
             }
+        }
+
+        private void Enemy_Spown(PictureBox enemy, bool rotation)
+        {
+            if(rotation)
+            {
+                Image tmp_image = cars_images[_car_image.Next(0, 6)];
+                tmp_image.RotateFlip(RotateFlipType.Rotate180FlipNone);
+                enemy.Image = tmp_image;
+            }
+            else
+            {
+                enemy.Image = cars_images[_car_image.Next(0, 6)];
+            }
+            _score += 1;
+            Game_Speed_Change();
+            enemy.Top = -50 + _delay.Next(enemies_delay1, enemies_delay2);
         }
 
         private void Game_Speed_Change()
