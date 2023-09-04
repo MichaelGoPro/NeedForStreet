@@ -7,9 +7,12 @@ namespace NeedForStreet
 {
     public partial class Form1 : Form
     {
+        #region vars and consts
         private const string path = "C:\\Users\\MikhailS\\source\\repos\\NeedForStreet\\NeedForStreet";
         private const int enemies_delay1 = -300;
         private const int enemies_delay2 = 10;
+        private const int _images_amout = 7;
+        private const int _enemies_amount = 3;
 
         private StreamReader _reader;
 
@@ -20,16 +23,18 @@ namespace NeedForStreet
         private int enemy_speed = 4;
         private int player_speed = 5;
 
-        private Image[] cars_left_images = new Image[7];
-        private Image[] cars_right_images = new Image[7];
-        private PictureBox[] enemies_right = new PictureBox[3];
-        private PictureBox[] enemies_left = new PictureBox[3];
+        private Image[] cars_left_images = new Image[_images_amout];
+        private Image[] cars_right_images = new Image[_images_amout];
+        private PictureBox[] enemies_right = new PictureBox[_enemies_amount];
+        private PictureBox[] enemies_left = new PictureBox[_enemies_amount];
         private PictureBox[] background_fields = new PictureBox[3];
 
         private Point _position;
         private bool _dragging;
         private Random _delay;
         private Random _car_image;
+
+        #endregion
         public Form1()
         {
             InitializeComponent();
@@ -82,20 +87,25 @@ namespace NeedForStreet
             }
         }
 
+        #region window dragging;
+
+        //move the window
         private void MouseClickMove(object sender, MouseEventArgs e)
         {
-            if(_dragging)
+            if (_dragging)
             {
                 Point currPoint = PointToScreen(new Point(e.X, e.Y));
-                this.Location = new Point(currPoint.X - _position.X, currPoint.Y -_position.Y);
+                this.Location = new Point(currPoint.X - _position.X, currPoint.Y - _position.Y);
             }
         }
 
+        //make _dragging = false
         private void MouseClickUp(object sender, MouseEventArgs e)
         {
             _dragging = false;
         }
 
+        //main dragging function change window coordinates
         private void MouseClickDown(object sender, MouseEventArgs e)
         {
             _dragging = true;
@@ -103,12 +113,16 @@ namespace NeedForStreet
             _position.Y = e.Y;
         }
 
+        //bind Esc KeyChar to close the game window
         private void Form1_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == (char)Keys.Escape)
                 this.Close();
         }
 
+        #endregion
+
+        //main ingame function 
         private void timer1_Tick(object sender, EventArgs e)
         {
             box_score.Text = "SCORE: " + _score + " ";
@@ -137,6 +151,7 @@ namespace NeedForStreet
             }
         }
 
+        //spown enemies right and left with random images and call Game_Speed_Change
         private void Enemy_Spown(PictureBox enemy, bool rotation)
         {
             if (rotation)
@@ -154,6 +169,7 @@ namespace NeedForStreet
             enemy.Top = -50 + _delay.Next(enemies_delay1, enemies_delay2);
         }
 
+        //change game and enemies speed
         private void Game_Speed_Change()
         {
             if (_score % 5 == 0)
@@ -167,6 +183,7 @@ namespace NeedForStreet
             }
         }
 
+        // player moving 
         private void Form1_KeyDown(object sender, KeyEventArgs e)
         {
             if((e.KeyCode == Keys.Left || e.KeyCode == Keys.A) && Player.Left > 80)
