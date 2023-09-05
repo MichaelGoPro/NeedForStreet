@@ -194,6 +194,7 @@
             this.label_lose.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.label_lose.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.label_lose.Enabled = false;
+            this.label_lose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.label_lose.Font = new System.Drawing.Font("Segoe Print", 55F, System.Drawing.FontStyle.Bold);
             this.label_lose.ForeColor = System.Drawing.Color.Red;
             this.label_lose.Location = new System.Drawing.Point(252, 263);
@@ -209,6 +210,7 @@
             this.label_record.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.label_record.Cursor = System.Windows.Forms.Cursors.PanNW;
             this.label_record.Enabled = false;
+            this.label_record.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.label_record.Font = new System.Drawing.Font("Segoe Print", 38F, System.Drawing.FontStyle.Bold);
             this.label_record.ForeColor = System.Drawing.Color.Red;
             this.label_record.Location = new System.Drawing.Point(252, 567);
@@ -223,6 +225,7 @@
             this.label_end_score.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.label_end_score.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.label_end_score.Enabled = false;
+            this.label_end_score.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.label_end_score.Font = new System.Drawing.Font("Segoe Print", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label_end_score.ForeColor = System.Drawing.Color.Red;
             this.label_end_score.Location = new System.Drawing.Point(252, 444);
@@ -247,6 +250,7 @@
             // 
             this.button_play.AllowDrop = true;
             this.button_play.BackColor = System.Drawing.Color.LimeGreen;
+            this.button_play.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button_play.Font = new System.Drawing.Font("Segoe Print", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.button_play.Location = new System.Drawing.Point(571, 444);
             this.button_play.Name = "button_play";

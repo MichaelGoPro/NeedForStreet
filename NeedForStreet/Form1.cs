@@ -15,6 +15,7 @@ namespace NeedForStreet
         private const int _enemies_amount = 3;
 
         private StreamReader _reader;
+        private StreamWriter _writer;
 
         private int _score = 0;
         private int _record;
@@ -50,6 +51,8 @@ namespace NeedForStreet
             _reader = new StreamReader(path + "\\Record.txt");
             _record = Int32.Parse(_reader.ReadLine());
             box_record.Text = "RECORD: " + _record;
+
+            box_score.Text = "SCORE: " + _score + " ";
 
             enemies_left[0] = enemy1;
             enemies_left[1] = enemy2;
@@ -125,8 +128,6 @@ namespace NeedForStreet
         //main ingame function 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            box_score.Text = "SCORE: " + _score + " ";
-
             for(int i = 0; i < 3; i++)
             {
                 background_fields[i].Top += bg_speed;
@@ -138,6 +139,7 @@ namespace NeedForStreet
 
             for (int i = 0; i < 3; ++i)
             {
+                Game_End(enemies_left[i], enemies_right[i]);
                 enemies_left[i].Top += enemy_speed;
                 enemies_right[i].Top += enemy_speed / 2;
                 if (enemies_left[i].Top >= 1110)
@@ -148,6 +150,31 @@ namespace NeedForStreet
                 {
                     Enemy_Spown(enemies_right[i], false);
                 }
+            }
+        }
+
+        private void Game_End(PictureBox enemy_left, PictureBox enemy_right)
+        {
+            if(Player.Bounds.IntersectsWith(enemy_left.Bounds) ||
+                Player.Bounds.IntersectsWith(enemy_right.Bounds))
+            {
+                main_timer.Enabled = false;
+                label_lose.Visible = true;
+                label_end_score.Visible = true;
+                button_play.Visible = true;
+                Record_Update();
+            }
+        }
+
+        private void Record_Update()
+        {
+            if(_record < _score)
+            {
+                _reader.Close();
+                _writer = new StreamWriter(path + "\\Record.txt");
+                _writer.WriteLine(_score); 
+                label_record.Visible = true;
+                _writer.Close();
             }
         }
 
@@ -164,9 +191,16 @@ namespace NeedForStreet
                 Image tmp_image = cars_right_images[_car_image.Next(0, 6)];
                 enemy.Image = tmp_image;
             }
-            _score += 1;
+            Change_Score();
             Game_Speed_Change();
             enemy.Top = -50 + _delay.Next(enemies_delay1, enemies_delay2);
+        }
+
+        // change score and update score_box text
+        private void Change_Score()
+        {
+            _score += 1;
+            box_score.Text = "SCORE: " + _score + " ";
         }
 
         //change game and enemies speed
