@@ -146,7 +146,7 @@
             // 
             this.enemy6.BackColor = System.Drawing.Color.Transparent;
             this.enemy6.Image = ((System.Drawing.Image)(resources.GetObject("enemy6.Image")));
-            this.enemy6.Location = new System.Drawing.Point(784, 667);
+            this.enemy6.Location = new System.Drawing.Point(786, 667);
             this.enemy6.Name = "enemy6";
             this.enemy6.Size = new System.Drawing.Size(105, 177);
             this.enemy6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -193,11 +193,10 @@
             this.label_lose.AutoSize = true;
             this.label_lose.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.label_lose.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.label_lose.Enabled = false;
             this.label_lose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.label_lose.Font = new System.Drawing.Font("Segoe Print", 55F, System.Drawing.FontStyle.Bold);
             this.label_lose.ForeColor = System.Drawing.Color.Red;
-            this.label_lose.Location = new System.Drawing.Point(252, 263);
+            this.label_lose.Location = new System.Drawing.Point(252, 257);
             this.label_lose.Name = "label_lose";
             this.label_lose.Size = new System.Drawing.Size(542, 165);
             this.label_lose.TabIndex = 22;
@@ -209,13 +208,12 @@
             this.label_record.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.label_record.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.label_record.Cursor = System.Windows.Forms.Cursors.PanNW;
-            this.label_record.Enabled = false;
             this.label_record.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.label_record.Font = new System.Drawing.Font("Segoe Print", 38F, System.Drawing.FontStyle.Bold);
+            this.label_record.Font = new System.Drawing.Font("Segoe Print", 42F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label_record.ForeColor = System.Drawing.Color.Red;
-            this.label_record.Location = new System.Drawing.Point(252, 567);
+            this.label_record.Location = new System.Drawing.Point(234, 567);
             this.label_record.Name = "label_record";
-            this.label_record.Size = new System.Drawing.Size(542, 114);
+            this.label_record.Size = new System.Drawing.Size(590, 125);
             this.label_record.TabIndex = 23;
             this.label_record.Text = "NEW RECORD!";
             // 
@@ -224,13 +222,12 @@
             this.label_end_score.AutoSize = true;
             this.label_end_score.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.label_end_score.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.label_end_score.Enabled = false;
             this.label_end_score.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.label_end_score.Font = new System.Drawing.Font("Segoe Print", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label_end_score.Font = new System.Drawing.Font("Segoe Print", 28.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label_end_score.ForeColor = System.Drawing.Color.Red;
-            this.label_end_score.Location = new System.Drawing.Point(252, 444);
+            this.label_end_score.Location = new System.Drawing.Point(252, 445);
             this.label_end_score.Name = "label_end_score";
-            this.label_end_score.Size = new System.Drawing.Size(302, 107);
+            this.label_end_score.Size = new System.Drawing.Size(237, 86);
             this.label_end_score.TabIndex = 24;
             this.label_end_score.Text = "SCORE: ";
             // 
@@ -251,13 +248,14 @@
             this.button_play.AllowDrop = true;
             this.button_play.BackColor = System.Drawing.Color.LimeGreen;
             this.button_play.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_play.Font = new System.Drawing.Font("Segoe Print", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button_play.Location = new System.Drawing.Point(571, 444);
+            this.button_play.Font = new System.Drawing.Font("Segoe Print", 28.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.button_play.Location = new System.Drawing.Point(624, 444);
             this.button_play.Name = "button_play";
-            this.button_play.Size = new System.Drawing.Size(222, 107);
+            this.button_play.Size = new System.Drawing.Size(209, 87);
             this.button_play.TabIndex = 26;
             this.button_play.Text = "PLAY";
             this.button_play.UseVisualStyleBackColor = false;
+            this.button_play.Click += new System.EventHandler(this.button_play_Click);
             // 
             // Form1
             // 

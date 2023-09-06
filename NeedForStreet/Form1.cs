@@ -43,10 +43,7 @@ namespace NeedForStreet
             _delay = new Random();
             _car_image = new Random();
 
-            label_lose.Visible = false;  
-            label_end_score.Visible = false;  
-            label_record.Visible = false;
-            button_play.Visible = false;
+            KeyPreview = true;
 
             _reader = new StreamReader(path + "\\Record.txt");
             _record = Int32.Parse(_reader.ReadLine());
@@ -54,6 +51,44 @@ namespace NeedForStreet
 
             box_score.Text = "SCORE: " + _score + " ";
 
+            Initialize_Enemies();
+            Initialize_Enemies_Images();
+
+            EndGame_Menu_Visible(false);
+            
+            for (int i = 0; i < 3; i++)
+            {
+                background_fields[i].MouseDown += MouseClickDown;   
+                background_fields[i].MouseUp += MouseClickUp;
+                background_fields[i].MouseMove += MouseClickMove;
+            }
+        }
+
+        #region window dragging;
+
+        //make endgame menu visible and invisible and call update record
+        private void EndGame_Menu_Visible(bool visible)
+        {
+            if(!visible)
+            {
+                label_lose.Visible = false;
+                label_end_score.Visible = false;
+                label_record.Visible = false;
+                button_play.Visible = false;
+            }
+            else
+            {
+                label_lose.Visible = true;
+                label_end_score.Visible = true;
+                label_end_score.Text = "SCORE: " + _score;
+                Record_Update();
+                button_play.Visible = true;
+            }
+        }
+
+        //fill enemies_left and enemies_right
+        private void Initialize_Enemies()
+        {
             enemies_left[0] = enemy1;
             enemies_left[1] = enemy2;
             enemies_left[2] = enemy3;
@@ -65,7 +100,12 @@ namespace NeedForStreet
             background_fields[0] = bg1;
             background_fields[1] = bg2;
             background_fields[2] = bg3;
+        }
 
+
+        //fill cars_images right and left with images from file
+        private void Initialize_Enemies_Images()
+        {
             cars_right_images[0] = System.Drawing.Image.FromFile(path + "\\Images\\Cars\\car_3_01.png");
             cars_right_images[1] = System.Drawing.Image.FromFile(path + "\\Images\\Cars\\car_4_01.png");
             cars_right_images[2] = System.Drawing.Image.FromFile(path + "\\Images\\Cars\\car_5_01.png");
@@ -73,7 +113,7 @@ namespace NeedForStreet
             cars_right_images[4] = System.Drawing.Image.FromFile(path + "\\Images\\Cars\\car_7_01.png");
             cars_right_images[5] = System.Drawing.Image.FromFile(path + "\\Images\\Cars\\car_8_01.png");
             cars_right_images[6] = System.Drawing.Image.FromFile(path + "\\Images\\Cars\\car_9_01.png");
-            
+
             cars_left_images[0] = System.Drawing.Image.FromFile(path + "\\Images\\Cars\\car_3_02.png");
             cars_left_images[1] = System.Drawing.Image.FromFile(path + "\\Images\\Cars\\car_4_02.png");
             cars_left_images[2] = System.Drawing.Image.FromFile(path + "\\Images\\Cars\\car_5_02.png");
@@ -81,16 +121,7 @@ namespace NeedForStreet
             cars_left_images[4] = System.Drawing.Image.FromFile(path + "\\Images\\Cars\\car_7_02.png");
             cars_left_images[5] = System.Drawing.Image.FromFile(path + "\\Images\\Cars\\car_8_02.png");
             cars_left_images[6] = System.Drawing.Image.FromFile(path + "\\Images\\Cars\\car_9_02.png");
-
-            for (int i = 0; i < 3; i++)
-            {
-                background_fields[i].MouseDown += MouseClickDown;   
-                background_fields[i].MouseUp += MouseClickUp;
-                background_fields[i].MouseMove += MouseClickMove;
-            }
         }
-
-        #region window dragging;
 
         //move the window
         private void MouseClickMove(object sender, MouseEventArgs e)
@@ -153,19 +184,19 @@ namespace NeedForStreet
             }
         }
 
+
+        //activate endgame menu and update record if need
         private void Game_End(PictureBox enemy_left, PictureBox enemy_right)
         {
             if(Player.Bounds.IntersectsWith(enemy_left.Bounds) ||
                 Player.Bounds.IntersectsWith(enemy_right.Bounds))
             {
                 main_timer.Enabled = false;
-                label_lose.Visible = true;
-                label_end_score.Visible = true;
-                button_play.Visible = true;
-                Record_Update();
+                EndGame_Menu_Visible(true);
             }
         }
 
+        //write new record in file and endgame menu
         private void Record_Update()
         {
             if(_record < _score)
@@ -196,7 +227,7 @@ namespace NeedForStreet
             enemy.Top = -50 + _delay.Next(enemies_delay1, enemies_delay2);
         }
 
-        // change score and update score_box text
+        //change score and update score_box text
         private void Change_Score()
         {
             _score += 1;
@@ -236,6 +267,31 @@ namespace NeedForStreet
             {
                 Player.Top += player_speed;
             } 
+        }
+
+        private void button_play_Click(object sender, EventArgs e)
+        {
+            EndGame_Menu_Visible(false);
+            Game_Start();
+            main_timer.Enabled = true;
+        }
+
+        private void Game_Start()
+        {
+            _score = 0;
+            bg_speed = 2;
+            enemy_speed = 4;
+            player_speed = 5;
+
+            enemy1.Top = -250;
+            enemy2.Top = 789;
+            enemy3.Top = 245;
+            enemy4.Top = 160;
+            enemy5.Top = -300;
+            enemy6.Top = 667;
+
+            Player.Top = 490;
+            Player.Left = 430;
         }
     }
 }
