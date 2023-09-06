@@ -18,6 +18,7 @@ namespace NeedForStreet
         private StreamWriter _writer;
 
         private int _score = 0;
+        private int _coins = 0;
         private int _record;
 
         private int bg_speed = 2;
@@ -161,13 +162,25 @@ namespace NeedForStreet
         //main ingame function 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            for(int i = 0; i < 3; i++)
+            for (int i = 0; i < 3; i++)
             {
                 background_fields[i].Top += bg_speed;
                 if (background_fields[i].Top >= 1110)
                 {
                     background_fields[i].Top = -2200;
                 }
+            }
+
+            box_coin.Top += bg_speed;
+            if (box_coin.Top >= 1110)
+            {
+                box_coin.Top = -200 - _delay.Next(-200, -50);
+                box_coin.Left = _delay.Next(160, 800);
+            }
+
+            if (Player.Bounds.IntersectsWith(box_coin.Bounds))
+            {
+                _coins++;
             }
 
             for (int i = 0; i < 3; ++i)
