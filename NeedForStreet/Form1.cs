@@ -14,8 +14,11 @@ namespace NeedForStreet
         private const int _images_amout = 7;
         private const int _enemies_amount = 3;
 
-        private StreamReader _reader;
-        private StreamWriter _writer;
+        private StreamReader _reader_record;
+        private StreamWriter _writer_record;
+
+        private StreamReader _reader_coins;
+        private StreamWriter _writer_coins;
 
         private int _score = 0;
         private int _coins = 0;
@@ -48,45 +51,40 @@ namespace NeedForStreet
 
             KeyPreview = true;
 
-            _reader = new StreamReader(path + "\\Record.txt");
-            _record = Int32.Parse(_reader.ReadLine());
-            box_record.Text = "RECORD: " + _record;
-
-            box_score.Text = "SCORE: " + _score + " ";
-
+            Initialize_Streams();
             Initialize_Enemies();
             Initialize_Enemies_Images();
+            Initialize_Counters();
+            Initialize_Moving_Functions();
 
             EndGame_Menu_Visible(false);
             
+        }
+
+        #region Initializers
+        private void Initialize_Moving_Functions()
+        {
             for (int i = 0; i < 3; i++)
             {
-                background_fields[i].MouseDown += MouseClickDown;   
+                background_fields[i].MouseDown += MouseClickDown;
                 background_fields[i].MouseUp += MouseClickUp;
                 background_fields[i].MouseMove += MouseClickMove;
             }
         }
 
-        #region window dragging;
-
-        //make endgame menu visible and invisible and call update record
-        private void EndGame_Menu_Visible(bool visible)
+        private void Initialize_Streams()
         {
-            if(!visible)
-            {
-                label_lose.Visible = false;
-                label_end_score.Visible = false;
-                label_record.Visible = false;
-                button_play.Visible = false;
-            }
-            else
-            {
-                label_lose.Visible = true;
-                label_end_score.Visible = true;
-                label_end_score.Text = "SCORE: " + _score;
-                Record_Update();
-                button_play.Visible = true;
-            }
+            _reader_record = new StreamReader(path + "\\Record.txt");
+            _reader_coins = new StreamReader(path + "\\Coins.txt");
+        }
+
+        private void Initialize_Counters()
+        {
+            _coins = Int32.Parse(_reader_coins.ReadLine());
+            _record = Int32.Parse(_reader_record.ReadLine());
+            box_coins.Text = _coins.ToString();
+            box_record.Text = "RECORD: " + _record;
+            box_score.Text = "SCORE: " + _score + " ";
         }
 
         //fill enemies_left and enemies_right
@@ -104,7 +102,6 @@ namespace NeedForStreet
             background_fields[1] = bg2;
             background_fields[2] = bg3;
         }
-
 
         //fill cars_images right and left with images from file
         private void Initialize_Enemies_Images()
@@ -125,6 +122,31 @@ namespace NeedForStreet
             cars_left_images[5] = System.Drawing.Image.FromFile(path + "\\Images\\Cars\\car_8_02.png");
             cars_left_images[6] = System.Drawing.Image.FromFile(path + "\\Images\\Cars\\car_9_02.png");
         }
+
+        #endregion
+
+        //make endgame menu visible and invisible and call update score and update coins
+        private void EndGame_Menu_Visible(bool visible)
+        {
+            if (!visible)
+            {
+                label_lose.Visible = false;
+                label_end_score.Visible = false;
+                label_record.Visible = false;
+                button_play.Visible = false;
+            }
+            else
+            {
+                label_lose.Visible = true;
+                label_end_score.Visible = true;
+                label_end_score.Text = "SCORE: " + _score;
+                Record_Update();
+                Coins_Update();
+                button_play.Visible = true;
+            }
+        }
+
+        #region window dragging;
 
         //move the window
         private void MouseClickMove(object sender, MouseEventArgs e)
@@ -162,26 +184,9 @@ namespace NeedForStreet
         //main ingame function 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            for (int i = 0; i < 3; i++)
-            {
-                background_fields[i].Top += bg_speed;
-                if (background_fields[i].Top >= 1110)
-                {
-                    background_fields[i].Top = -2200;
-                }
-            }
+            Bg_Move();
 
-            box_coin.Top += bg_speed;
-            if (box_coin.Top >= 1110)
-            {
-                box_coin.Top = -200 - _delay.Next(-200, -50);
-                box_coin.Left = _delay.Next(160, 800);
-            }
-
-            if (Player.Bounds.IntersectsWith(box_coin.Bounds))
-            {
-                _coins++;
-            }
+            Coin_Behavior();
 
             for (int i = 0; i < 3; ++i)
             {
@@ -199,6 +204,64 @@ namespace NeedForStreet
             }
         }
 
+        #region Coin functions
+        // contains Coin_Move and Coin_Intersects
+        private void Coin_Behavior()
+        {
+            Coin_Move();
+            Coin_Intersects();
+        }
+
+        //move coin on game field
+        private void Coin_Move()
+        {
+            box_coin.Top += bg_speed;
+            if (box_coin.Top >= 1110)
+            {
+                Coin_Respown();
+            }
+        }
+
+        //check coin intersects with player
+        private void Coin_Intersects()
+        {
+            if (Player.Bounds.IntersectsWith(box_coin.Bounds))
+            {
+                _coins++;
+                box_coins.Text = _coins.ToString();
+                Coin_Respown();
+            }
+        }
+
+        //respown coins with vertical and horizontal delay
+        private void Coin_Respown()
+        {
+            box_coin.Top = -200 - _delay.Next(-200, -100);
+            box_coin.Left = _delay.Next(160, 800);
+        }
+
+        //write new coins value in file
+        private void Coins_Update()
+        {
+            _reader_coins.Close();
+            _writer_coins = new StreamWriter(path + "\\Coins.txt");
+            _writer_coins.WriteLine(_score);
+            _writer_coins.Close();
+        }
+        #endregion
+
+        //move background fields
+        private void Bg_Move()
+        {
+            for (int i = 0; i < 3; i++)
+            {
+                background_fields[i].Top += bg_speed;
+                if (background_fields[i].Top >= 1110)
+                {
+                    background_fields[i].Top = -2200;
+                }
+            }
+        }
 
         //activate endgame menu and update record if need
         private void Game_End(PictureBox enemy_left, PictureBox enemy_right)
@@ -217,11 +280,11 @@ namespace NeedForStreet
         {
             if(_record < _score)
             {
-                _reader.Close();
-                _writer = new StreamWriter(path + "\\Record.txt");
-                _writer.WriteLine(_score); 
+                _reader_record.Close();
+                _writer_record = new StreamWriter(path + "\\Record.txt");
+                _writer_record.WriteLine(_score); 
                 label_record.Visible = true;
-                _writer.Close();
+                _writer_record.Close();
             }
         }
 
@@ -294,10 +357,11 @@ namespace NeedForStreet
         {
             EndGame_Menu_Visible(false);
             Game_Start();
+            box_score.Text = "SCORE: " + _score + " ";
             main_timer.Enabled = true;
         }
 
-        //set default position for enemies and player, default settings
+        //set default position for enemies and player, default settings, open IO streams
         private void Game_Start()
         {
             _lose = false;
@@ -306,15 +370,27 @@ namespace NeedForStreet
             enemy_speed = 4;
             player_speed = 5;
 
+            Set_Enemies_Default();
+            Set_Player_Default();
+            Initialize_Streams();
+        }
+
+        //set Player on default position
+        private void Set_Player_Default()
+        {
+            Player.Top = 490;
+            Player.Left = 430;
+        }
+
+        //set enemies on default position
+        private void Set_Enemies_Default()
+        {
             enemy1.Top = -250;
             enemy2.Top = 789;
             enemy3.Top = 245;
             enemy4.Top = 160;
             enemy5.Top = -300;
             enemy6.Top = 667;
-
-            Player.Top = 490;
-            Player.Left = 430;
         }
     }
 }

@@ -49,7 +49,7 @@
             this.button_play = new System.Windows.Forms.Button();
             this.box_coin = new System.Windows.Forms.PictureBox();
             this.box_coins = new System.Windows.Forms.TextBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.box_coin_score = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.bg1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Player)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bg2)).BeginInit();
@@ -61,13 +61,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.enemy5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bg3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.box_coin)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.box_coin_score)).BeginInit();
             this.SuspendLayout();
             // 
             // bg1
             // 
             this.bg1.Image = ((System.Drawing.Image)(resources.GetObject("bg1.Image")));
-            this.bg1.Location = new System.Drawing.Point(0, 0);
+            this.bg1.Location = new System.Drawing.Point(0, -2200);
             this.bg1.Margin = new System.Windows.Forms.Padding(0);
             this.bg1.Name = "bg1";
             this.bg1.Size = new System.Drawing.Size(1030, 1100);
@@ -185,7 +185,7 @@
             // bg3
             // 
             this.bg3.Image = ((System.Drawing.Image)(resources.GetObject("bg3.Image")));
-            this.bg3.Location = new System.Drawing.Point(0, -2200);
+            this.bg3.Location = new System.Drawing.Point(0, 0);
             this.bg3.Margin = new System.Windows.Forms.Padding(0);
             this.bg3.Name = "bg3";
             this.bg3.Size = new System.Drawing.Size(1030, 1100);
@@ -268,7 +268,7 @@
             this.box_coin.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.box_coin.Enabled = false;
             this.box_coin.Image = ((System.Drawing.Image)(resources.GetObject("box_coin.Image")));
-            this.box_coin.Location = new System.Drawing.Point(369, 100);
+            this.box_coin.Location = new System.Drawing.Point(374, 112);
             this.box_coin.Name = "box_coin";
             this.box_coin.Size = new System.Drawing.Size(64, 64);
             this.box_coin.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -280,26 +280,25 @@
             this.box_coins.BackColor = System.Drawing.SystemColors.Menu;
             this.box_coins.Enabled = false;
             this.box_coins.Font = new System.Drawing.Font("Segoe Print", 16.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.box_coins.Location = new System.Drawing.Point(877, 149);
+            this.box_coins.Location = new System.Drawing.Point(877, 21);
             this.box_coins.Margin = new System.Windows.Forms.Padding(0);
             this.box_coins.Name = "box_coins";
             this.box_coins.ReadOnly = true;
             this.box_coins.Size = new System.Drawing.Size(142, 55);
             this.box_coins.TabIndex = 28;
-            this.box_coins.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
-            // pictureBox1
+            // box_coin_score
             // 
-            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox1.Enabled = false;
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(964, 149);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(54, 55);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 29;
-            this.pictureBox1.TabStop = false;
+            this.box_coin_score.BackColor = System.Drawing.Color.Transparent;
+            this.box_coin_score.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.box_coin_score.Enabled = false;
+            this.box_coin_score.Image = ((System.Drawing.Image)(resources.GetObject("box_coin_score.Image")));
+            this.box_coin_score.Location = new System.Drawing.Point(964, 21);
+            this.box_coin_score.Name = "box_coin_score";
+            this.box_coin_score.Size = new System.Drawing.Size(54, 55);
+            this.box_coin_score.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.box_coin_score.TabIndex = 29;
+            this.box_coin_score.TabStop = false;
             // 
             // Form1
             // 
@@ -308,25 +307,25 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1030, 1100);
-            this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.box_coins);
-            this.Controls.Add(this.button_play);
             this.Controls.Add(this.box_record);
-            this.Controls.Add(this.label_end_score);
-            this.Controls.Add(this.label_record);
-            this.Controls.Add(this.label_lose);
             this.Controls.Add(this.box_score);
-            this.Controls.Add(this.enemy5);
-            this.Controls.Add(this.enemy6);
-            this.Controls.Add(this.enemy4);
-            this.Controls.Add(this.enemy3);
+            this.Controls.Add(this.label_record);
+            this.Controls.Add(this.label_end_score);
+            this.Controls.Add(this.button_play);
+            this.Controls.Add(this.label_lose);
+            this.Controls.Add(this.box_coin_score);
+            this.Controls.Add(this.box_coins);
             this.Controls.Add(this.enemy1);
+            this.Controls.Add(this.enemy5);
             this.Controls.Add(this.enemy2);
             this.Controls.Add(this.Player);
-            this.Controls.Add(this.bg2);
-            this.Controls.Add(this.bg3);
+            this.Controls.Add(this.enemy6);
+            this.Controls.Add(this.enemy3);
+            this.Controls.Add(this.enemy4);
             this.Controls.Add(this.box_coin);
             this.Controls.Add(this.bg1);
+            this.Controls.Add(this.bg2);
+            this.Controls.Add(this.bg3);
             this.Cursor = System.Windows.Forms.Cursors.PanNW;
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -347,7 +346,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.enemy5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bg3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.box_coin)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.box_coin_score)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -374,7 +373,7 @@
         private System.Windows.Forms.Button button_play;
         private System.Windows.Forms.PictureBox box_coin;
         private System.Windows.Forms.TextBox box_coins;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox box_coin_score;
     }
 }
 
