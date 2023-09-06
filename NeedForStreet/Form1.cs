@@ -32,6 +32,7 @@ namespace NeedForStreet
 
         private Point _position;
         private bool _dragging;
+        private bool _lose;
         private Random _delay;
         private Random _car_image;
 
@@ -40,6 +41,7 @@ namespace NeedForStreet
         {
             InitializeComponent();
 
+            _lose = false;
             _delay = new Random();
             _car_image = new Random();
 
@@ -191,6 +193,7 @@ namespace NeedForStreet
             if(Player.Bounds.IntersectsWith(enemy_left.Bounds) ||
                 Player.Bounds.IntersectsWith(enemy_right.Bounds))
             {
+                _lose = true;
                 main_timer.Enabled = false;
                 EndGame_Menu_Visible(true);
             }
@@ -251,6 +254,10 @@ namespace NeedForStreet
         // player moving 
         private void Form1_KeyDown(object sender, KeyEventArgs e)
         {
+            if(_lose)
+            {
+                return;
+            }
             if((e.KeyCode == Keys.Left || e.KeyCode == Keys.A) && Player.Left > 80)
             {
                 Player.Left -= player_speed;
@@ -269,6 +276,7 @@ namespace NeedForStreet
             } 
         }
 
+        //make menu invisible and restart timer
         private void button_play_Click(object sender, EventArgs e)
         {
             EndGame_Menu_Visible(false);
@@ -276,8 +284,10 @@ namespace NeedForStreet
             main_timer.Enabled = true;
         }
 
+        //set default position for enemies and player, default settings
         private void Game_Start()
         {
+            _lose = false;
             _score = 0;
             bg_speed = 2;
             enemy_speed = 4;
