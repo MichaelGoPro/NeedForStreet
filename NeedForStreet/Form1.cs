@@ -237,7 +237,7 @@ namespace NeedForStreet
         private void Coin_Respown()
         {
             box_coin.Top = -200 - _delay.Next(-200, -100);
-            box_coin.Left = _delay.Next(160, 800);
+            box_coin.Left = _delay.Next(130, 700);
         }
 
         //write new coins value in file
@@ -286,24 +286,6 @@ namespace NeedForStreet
                 label_record.Visible = true;
                 _writer_record.Close();
             }
-        }
-
-        //spown enemies right and left with random images and call Game_Speed_Change
-        private void Enemy_Spown(PictureBox enemy, bool rotation)
-        {
-            if (rotation)
-            {
-                Image tmp_image = cars_left_images[_car_image.Next(0, 6)];
-                enemy.Image = tmp_image;
-            }
-            else
-            {
-                Image tmp_image = cars_right_images[_car_image.Next(0, 6)];
-                enemy.Image = tmp_image;
-            }
-            Change_Score();
-            Game_Speed_Change();
-            enemy.Top = -50 + _delay.Next(enemies_delay1, enemies_delay2);
         }
 
         //change score and update score_box text
@@ -391,6 +373,24 @@ namespace NeedForStreet
             enemy4.Top = 160;
             enemy5.Top = -300;
             enemy6.Top = 667;
+        }
+
+        //spown enemies right and left with random images and call Game_Speed_Change
+        private void Enemy_Spown(PictureBox enemy, bool rotation)
+        {
+            if (rotation)
+            {
+                Image tmp_image = cars_left_images[_car_image.Next(0, 6)];
+                enemy.Image = tmp_image;
+            }
+            else
+            {
+                Image tmp_image = cars_right_images[_car_image.Next(0, 6)];
+                enemy.Image = tmp_image;
+            }
+            Change_Score();
+            Game_Speed_Change();
+            enemy.Top = -50 + _delay.Next(enemies_delay1, enemies_delay2);
         }
     }
 }
