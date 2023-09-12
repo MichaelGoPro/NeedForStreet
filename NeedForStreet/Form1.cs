@@ -11,7 +11,7 @@ namespace NeedForStreet
         private const string path = "C:\\Users\\MikhailS\\source\\repos\\NeedForStreet\\NeedForStreet";
         private const int enemies_delay1 = -300;
         private const int enemies_delay2 = 10;
-        private const int _images_amout = 7;
+        private const int _images_amount = 7;
         private const int _enemies_amount = 3;
 
         private StreamReader _reader_record;
@@ -28,8 +28,8 @@ namespace NeedForStreet
         private int enemy_speed = 4;
         private int player_speed = 5;
 
-        private Image[] cars_left_images = new Image[_images_amout];
-        private Image[] cars_right_images = new Image[_images_amout];
+        private Image[] cars_left_images = new Image[_images_amount];
+        private Image[] cars_right_images = new Image[_images_amount];
         private PictureBox[] enemies_right = new PictureBox[_enemies_amount];
         private PictureBox[] enemies_left = new PictureBox[_enemies_amount];
         private PictureBox[] background_fields = new PictureBox[3];
@@ -191,8 +191,7 @@ namespace NeedForStreet
             for (int i = 0; i < 3; ++i)
             {
                 Game_End(enemies_left[i], enemies_right[i]);
-                enemies_left[i].Top += enemy_speed;
-                enemies_right[i].Top += enemy_speed / 2;
+                Enemy_Move(i);
                 if (enemies_left[i].Top >= 1110)
                 {
                     Enemy_Spown(enemies_left[i], true);
@@ -236,7 +235,7 @@ namespace NeedForStreet
         //respown coins with vertical and horizontal delay
         private void Coin_Respown()
         {
-            box_coin.Top = -200 - _delay.Next(-200, -100);
+            box_coin.Top = -200 + _delay.Next(-200, -100);
             box_coin.Left = _delay.Next(130, 700);
         }
 
@@ -373,6 +372,14 @@ namespace NeedForStreet
             enemy4.Top = 160;
             enemy5.Top = -300;
             enemy6.Top = 667;
+        }
+
+        //move enemy_left end enemy_right with index
+        private void Enemy_Move(int index)
+        {
+
+            enemies_left[index].Top += enemy_speed;
+            enemies_right[index].Top += enemy_speed / 2;
         }
 
         //spown enemies right and left with random images and call Game_Speed_Change
