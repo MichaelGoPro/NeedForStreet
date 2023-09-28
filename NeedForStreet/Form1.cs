@@ -244,7 +244,7 @@ namespace NeedForStreet
         {
             _reader_coins.Close();
             _writer_coins = new StreamWriter(path + "\\Coins.txt");
-            _writer_coins.WriteLine(_score);
+            _writer_coins.WriteLine(_coins);
             _writer_coins.Close();
         }
         #endregion
@@ -339,6 +339,7 @@ namespace NeedForStreet
             EndGame_Menu_Visible(false);
             Game_Start();
             box_score.Text = "SCORE: " + _score + " ";
+            box_record.Text = "RECORD: " + _record;
             main_timer.Enabled = true;
         }
 
@@ -354,6 +355,7 @@ namespace NeedForStreet
             Set_Enemies_Default();
             Set_Player_Default();
             Initialize_Streams();
+            Initialize_Counters();
         }
 
         //set Player on default position
