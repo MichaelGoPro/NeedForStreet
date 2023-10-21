@@ -1,7 +1,9 @@
 ﻿using System;
+using Npgsql;
 using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
+using System.Runtime.CompilerServices;
 
 namespace NeedForStreet
 {
@@ -9,11 +11,12 @@ namespace NeedForStreet
     {
         #region vars and consts
         private const string path = "C:\\Users\\MikhailS\\source\\repos\\NeedForStreet\\NeedForStreet";
+        private const string connectionString = "Server = 127.0.0.1; Port=5432;User=postgres;Password=1234;Database=postgres;";
         private const int enemies_delay1 = -300;
         private const int enemies_delay2 = 10;
         private const int _images_amount = 7;
         private const int _enemies_amount = 3;
-
+        private const int V = 5;
         private StreamReader _reader_record;
         private StreamWriter _writer_record;
 
@@ -44,6 +47,9 @@ namespace NeedForStreet
         public Form1()
         {
             InitializeComponent();
+            Inizialize_DB_Connection();
+
+            main_timer.Enabled = false;
 
             _lose = false;
             _delay = new Random();
@@ -57,8 +63,10 @@ namespace NeedForStreet
             Initialize_Counters();
             Initialize_Moving_Functions();
 
+            UnlockCars();
+
             EndGame_Menu_Visible(false);
-            
+
         }
 
         #region Initializers
@@ -130,6 +138,7 @@ namespace NeedForStreet
         {
             if (!visible)
             {
+                car_change_button.Visible = false;
                 label_lose.Visible = false;
                 label_end_score.Visible = false;
                 label_record.Visible = false;
@@ -137,6 +146,7 @@ namespace NeedForStreet
             }
             else
             {
+                car_change_button.Visible = true;
                 label_lose.Visible = true;
                 label_end_score.Visible = true;
                 label_end_score.Text = "SCORE: " + _score;
@@ -265,7 +275,7 @@ namespace NeedForStreet
         //activate endgame menu and update record if need
         private void Game_End(PictureBox enemy_left, PictureBox enemy_right)
         {
-            if(Player.Bounds.IntersectsWith(enemy_left.Bounds) ||
+            if (Player.Bounds.IntersectsWith(enemy_left.Bounds) ||
                 Player.Bounds.IntersectsWith(enemy_right.Bounds))
             {
                 _lose = true;
@@ -277,11 +287,11 @@ namespace NeedForStreet
         //write new record in file and endgame menu
         private void Record_Update()
         {
-            if(_record < _score)
+            if (_record < _score)
             {
                 _reader_record.Close();
                 _writer_record = new StreamWriter(path + "\\Record.txt");
-                _writer_record.WriteLine(_score); 
+                _writer_record.WriteLine(_score);
                 label_record.Visible = true;
                 _writer_record.Close();
             }
@@ -311,11 +321,11 @@ namespace NeedForStreet
         // player moving 
         private void Form1_KeyDown(object sender, KeyEventArgs e)
         {
-            if(_lose)
+            if (_lose)
             {
                 return;
             }
-            if((e.KeyCode == Keys.Left || e.KeyCode == Keys.A) && Player.Left > 80)
+            if ((e.KeyCode == Keys.Left || e.KeyCode == Keys.A) && Player.Left > 80)
             {
                 Player.Left -= player_speed;
             }
@@ -330,11 +340,16 @@ namespace NeedForStreet
             else if ((e.KeyCode == Keys.Down || e.KeyCode == Keys.S) && Player.Bottom < 700)
             {
                 Player.Top += player_speed;
-            } 
+            }
         }
 
         //make menu invisible and restart timer
         private void button_play_Click(object sender, EventArgs e)
+        {
+            Play_Click_Action();
+        }
+
+        private void Play_Click_Action()
         {
             EndGame_Menu_Visible(false);
             Game_Start();
@@ -365,6 +380,7 @@ namespace NeedForStreet
             Player.Left = 430;
         }
 
+        #region enemies functions
         //set enemies on default position
         private void Set_Enemies_Default()
         {
@@ -401,5 +417,169 @@ namespace NeedForStreet
             Game_Speed_Change();
             enemy.Top = -50 + _delay.Next(enemies_delay1, enemies_delay2);
         }
+
+        #endregion
+
+        #region DB functions
+
+        private void Inizialize_DB_Connection()
+        {
+            return;
+            //NpgsqlConnection connection = new NpgsqlConnection(connectionString);
+            //connection.Open();
+        }
+
+        private void Update_Score_From_DB()
+        {
+            return;
+        }
+
+        private void Update_Coins_From_DB()
+        {
+            return;
+        }
+
+        #endregion
+
+        #region car select menu
+
+        private void Close_Menu()
+        {
+            select_car_button_1.Visible = false;
+            select_car_button_2.Visible = false;
+            select_car_button_3.Visible = false;
+            select_car_button_4.Visible = false;
+            select_car_button_5.Visible = false;
+            select_car_button_6.Visible = false;
+            select_car_button_7.Visible = false;
+            select_car_button_8.Visible = false;
+
+            car_select_menu_bg.Visible = false;
+
+            selected_car1.Visible = false;
+            selected_car2.Visible = false;
+            selected_car3.Visible = false;
+            selected_car4.Visible = false;
+            selected_car5.Visible = false;
+            selected_car6.Visible = false;
+            selected_car7.Visible = false;
+            selected_car8.Visible = false;
+
+            car_Select_box.Visible = false;
+        }
+
+        private void Open_Menu()
+        {
+            select_car_button_1.Visible = true;
+            select_car_button_2.Visible = true;
+            select_car_button_3.Visible = true;
+            select_car_button_4.Visible = true;
+            select_car_button_5.Visible = true;
+            select_car_button_6.Visible = true;
+            select_car_button_7.Visible = true;
+            select_car_button_8.Visible = true;
+
+            car_select_menu_bg.Visible = true;
+
+            selected_car1.Visible = true;
+            selected_car2.Visible = true;
+            selected_car3.Visible = true;
+            selected_car4.Visible = true;
+            selected_car5.Visible = true;
+            selected_car6.Visible = true;
+            selected_car7.Visible = true;
+            selected_car8.Visible = true;
+
+            car_Select_box.Visible = true;
+        }
+
+
+        //set picture box image == image with the path
+        private void Change_Player_Skin(string path)
+        {
+            Player.Image = System.Drawing.Image.FromFile(path);
+        }
+
+        //lock cars if coins < param
+        private void UnlockCars()
+        {
+            if(_coins < 5)
+                select_car_button_2.Enabled = false;
+            if (_coins < 10)
+                select_car_button_3.Enabled = false;
+            if (_coins < 20)
+                select_car_button_4.Enabled = false;
+            if (_coins < 30)
+                select_car_button_5.Enabled = false;
+            if (_coins < 40)
+                select_car_button_6.Enabled = false;
+            if (_coins < 50)
+                select_car_button_7.Enabled = false;
+            if (_coins < 60)
+                select_car_button_8.Enabled = false;
+        }
+
+        private void select_car_button_1_Click(object sender, EventArgs e)
+        {
+            Change_Player_Skin("C:\\Users\\MikhailS\\source\\repos\\NeedForStreet\\NeedForStreet\\Images\\Cars\\Car_1_01 — копия.png");
+            Close_Menu();
+            Play_Click_Action();
+        }
+
+        private void select_car_button_2_Click(object sender, EventArgs e)
+        {
+            Change_Player_Skin("C:\\Users\\MikhailS\\source\\repos\\NeedForStreet\\NeedForStreet\\Images\\Cars\\Car_2_01.png");
+            Close_Menu();
+            Play_Click_Action();
+        }
+
+        private void select_car_button_3_Click(object sender, EventArgs e)
+        {
+            Change_Player_Skin("C:\\Users\\MikhailS\\source\\repos\\NeedForStreet\\NeedForStreet\\Images\\Cars\\Car_3_01.png");
+            Close_Menu();
+            Play_Click_Action();
+        }
+
+        private void select_car_button_4_Click(object sender, EventArgs e)
+        {
+            Change_Player_Skin("C:\\Users\\MikhailS\\source\\repos\\NeedForStreet\\NeedForStreet\\Images\\Cars\\Car_4_01.png");
+            Close_Menu();
+            Play_Click_Action();
+        }
+
+        private void select_car_button_5_Click(object sender, EventArgs e)
+        {
+            Change_Player_Skin("C:\\Users\\MikhailS\\source\\repos\\NeedForStreet\\NeedForStreet\\Images\\Cars\\Car_5_01.png");
+            Close_Menu();
+            Play_Click_Action();
+        }
+
+        private void select_car_button_6_Click(object sender, EventArgs e)
+        {
+            Change_Player_Skin("C:\\Users\\MikhailS\\source\\repos\\NeedForStreet\\NeedForStreet\\Images\\Cars\\Car_6_01.png");
+            Close_Menu();
+            Play_Click_Action();
+        }
+
+        private void select_car_button_7_Click(object sender, EventArgs e)
+        {
+            Change_Player_Skin("C:\\Users\\MikhailS\\source\\repos\\NeedForStreet\\NeedForStreet\\Images\\Cars\\Car_8_01.png");
+            Close_Menu();
+            Play_Click_Action();
+        }
+
+        private void select_car_button_8_Click(object sender, EventArgs e)
+        {
+            Change_Player_Skin("C:\\Users\\MikhailS\\source\\repos\\NeedForStreet\\NeedForStreet\\Images\\Cars\\Car_9_01.png");
+            Close_Menu();
+            Play_Click_Action();
+        }
+
+        private void car_change_button_Click(object sender, EventArgs e)
+        {
+            Open_Menu();
+            car_change_button.Visible = false;
+        }
+        #endregion
     }
 }

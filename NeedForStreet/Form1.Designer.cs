@@ -50,6 +50,26 @@
             this.box_coin = new System.Windows.Forms.PictureBox();
             this.box_coins = new System.Windows.Forms.TextBox();
             this.box_coin_score = new System.Windows.Forms.PictureBox();
+            this.car_Select_box = new System.Windows.Forms.TextBox();
+            this.car_select_menu_bg = new System.Windows.Forms.PictureBox();
+            this.selected_car1 = new System.Windows.Forms.PictureBox();
+            this.selected_car4 = new System.Windows.Forms.PictureBox();
+            this.selected_car3 = new System.Windows.Forms.PictureBox();
+            this.selected_car2 = new System.Windows.Forms.PictureBox();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.selected_car6 = new System.Windows.Forms.PictureBox();
+            this.selected_car7 = new System.Windows.Forms.PictureBox();
+            this.selected_car8 = new System.Windows.Forms.PictureBox();
+            this.selected_car5 = new System.Windows.Forms.PictureBox();
+            this.select_car_button_1 = new System.Windows.Forms.Button();
+            this.select_car_button_2 = new System.Windows.Forms.Button();
+            this.select_car_button_3 = new System.Windows.Forms.Button();
+            this.select_car_button_4 = new System.Windows.Forms.Button();
+            this.select_car_button_5 = new System.Windows.Forms.Button();
+            this.select_car_button_6 = new System.Windows.Forms.Button();
+            this.select_car_button_7 = new System.Windows.Forms.Button();
+            this.select_car_button_8 = new System.Windows.Forms.Button();
+            this.car_change_button = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.bg1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Player)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bg2)).BeginInit();
@@ -62,6 +82,15 @@
             ((System.ComponentModel.ISupportInitialize)(this.bg3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.box_coin)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.box_coin_score)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.car_select_menu_bg)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.selected_car1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.selected_car4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.selected_car3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.selected_car2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.selected_car6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.selected_car7)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.selected_car8)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.selected_car5)).BeginInit();
             this.SuspendLayout();
             // 
             // bg1
@@ -300,6 +329,258 @@
             this.box_coin_score.TabIndex = 29;
             this.box_coin_score.TabStop = false;
             // 
+            // car_Select_box
+            // 
+            this.car_Select_box.BackColor = System.Drawing.Color.LawnGreen;
+            this.car_Select_box.Cursor = System.Windows.Forms.Cursors.PanNW;
+            this.car_Select_box.Font = new System.Drawing.Font("Microsoft Sans Serif", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.car_Select_box.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.car_Select_box.Location = new System.Drawing.Point(108, 45);
+            this.car_Select_box.Name = "car_Select_box";
+            this.car_Select_box.ReadOnly = true;
+            this.car_Select_box.ShortcutsEnabled = false;
+            this.car_Select_box.Size = new System.Drawing.Size(823, 98);
+            this.car_Select_box.TabIndex = 31;
+            this.car_Select_box.Text = "SELECT YOUR CAR";
+            this.car_Select_box.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // car_select_menu_bg
+            // 
+            this.car_select_menu_bg.Image = ((System.Drawing.Image)(resources.GetObject("car_select_menu_bg.Image")));
+            this.car_select_menu_bg.Location = new System.Drawing.Point(0, 0);
+            this.car_select_menu_bg.Name = "car_select_menu_bg";
+            this.car_select_menu_bg.Size = new System.Drawing.Size(1030, 1150);
+            this.car_select_menu_bg.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.car_select_menu_bg.TabIndex = 30;
+            this.car_select_menu_bg.TabStop = false;
+            // 
+            // selected_car1
+            // 
+            this.selected_car1.BackColor = System.Drawing.Color.Transparent;
+            this.selected_car1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("selected_car1.BackgroundImage")));
+            this.selected_car1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.selected_car1.Enabled = false;
+            this.selected_car1.Image = ((System.Drawing.Image)(resources.GetObject("selected_car1.Image")));
+            this.selected_car1.Location = new System.Drawing.Point(108, 183);
+            this.selected_car1.Name = "selected_car1";
+            this.selected_car1.Size = new System.Drawing.Size(138, 245);
+            this.selected_car1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.selected_car1.TabIndex = 32;
+            this.selected_car1.TabStop = false;
+            // 
+            // selected_car4
+            // 
+            this.selected_car4.BackColor = System.Drawing.Color.Transparent;
+            this.selected_car4.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("selected_car4.BackgroundImage")));
+            this.selected_car4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.selected_car4.Enabled = false;
+            this.selected_car4.Image = ((System.Drawing.Image)(resources.GetObject("selected_car4.Image")));
+            this.selected_car4.Location = new System.Drawing.Point(800, 183);
+            this.selected_car4.Name = "selected_car4";
+            this.selected_car4.Size = new System.Drawing.Size(131, 245);
+            this.selected_car4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.selected_car4.TabIndex = 33;
+            this.selected_car4.TabStop = false;
+            // 
+            // selected_car3
+            // 
+            this.selected_car3.BackColor = System.Drawing.Color.Transparent;
+            this.selected_car3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("selected_car3.BackgroundImage")));
+            this.selected_car3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.selected_car3.Enabled = false;
+            this.selected_car3.Image = ((System.Drawing.Image)(resources.GetObject("selected_car3.Image")));
+            this.selected_car3.Location = new System.Drawing.Point(571, 183);
+            this.selected_car3.Name = "selected_car3";
+            this.selected_car3.Size = new System.Drawing.Size(138, 245);
+            this.selected_car3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.selected_car3.TabIndex = 34;
+            this.selected_car3.TabStop = false;
+            // 
+            // selected_car2
+            // 
+            this.selected_car2.BackColor = System.Drawing.Color.Transparent;
+            this.selected_car2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("selected_car2.BackgroundImage")));
+            this.selected_car2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.selected_car2.Enabled = false;
+            this.selected_car2.Image = ((System.Drawing.Image)(resources.GetObject("selected_car2.Image")));
+            this.selected_car2.Location = new System.Drawing.Point(340, 183);
+            this.selected_car2.Name = "selected_car2";
+            this.selected_car2.Size = new System.Drawing.Size(149, 245);
+            this.selected_car2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.selected_car2.TabIndex = 35;
+            this.selected_car2.TabStop = false;
+            // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
+            // 
+            // selected_car6
+            // 
+            this.selected_car6.BackColor = System.Drawing.Color.Transparent;
+            this.selected_car6.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("selected_car6.BackgroundImage")));
+            this.selected_car6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.selected_car6.Enabled = false;
+            this.selected_car6.Image = ((System.Drawing.Image)(resources.GetObject("selected_car6.Image")));
+            this.selected_car6.Location = new System.Drawing.Point(340, 559);
+            this.selected_car6.Name = "selected_car6";
+            this.selected_car6.Size = new System.Drawing.Size(149, 227);
+            this.selected_car6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.selected_car6.TabIndex = 40;
+            this.selected_car6.TabStop = false;
+            // 
+            // selected_car7
+            // 
+            this.selected_car7.BackColor = System.Drawing.Color.Transparent;
+            this.selected_car7.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("selected_car7.BackgroundImage")));
+            this.selected_car7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.selected_car7.Enabled = false;
+            this.selected_car7.Image = ((System.Drawing.Image)(resources.GetObject("selected_car7.Image")));
+            this.selected_car7.Location = new System.Drawing.Point(571, 559);
+            this.selected_car7.Name = "selected_car7";
+            this.selected_car7.Size = new System.Drawing.Size(138, 227);
+            this.selected_car7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.selected_car7.TabIndex = 39;
+            this.selected_car7.TabStop = false;
+            // 
+            // selected_car8
+            // 
+            this.selected_car8.BackColor = System.Drawing.Color.Transparent;
+            this.selected_car8.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("selected_car8.BackgroundImage")));
+            this.selected_car8.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.selected_car8.Enabled = false;
+            this.selected_car8.Image = ((System.Drawing.Image)(resources.GetObject("selected_car8.Image")));
+            this.selected_car8.Location = new System.Drawing.Point(800, 559);
+            this.selected_car8.Name = "selected_car8";
+            this.selected_car8.Size = new System.Drawing.Size(131, 227);
+            this.selected_car8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.selected_car8.TabIndex = 38;
+            this.selected_car8.TabStop = false;
+            // 
+            // selected_car5
+            // 
+            this.selected_car5.BackColor = System.Drawing.Color.Transparent;
+            this.selected_car5.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("selected_car5.BackgroundImage")));
+            this.selected_car5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.selected_car5.Enabled = false;
+            this.selected_car5.Image = ((System.Drawing.Image)(resources.GetObject("selected_car5.Image")));
+            this.selected_car5.Location = new System.Drawing.Point(109, 559);
+            this.selected_car5.Name = "selected_car5";
+            this.selected_car5.Size = new System.Drawing.Size(137, 227);
+            this.selected_car5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.selected_car5.TabIndex = 37;
+            this.selected_car5.TabStop = false;
+            // 
+            // select_car_button_1
+            // 
+            this.select_car_button_1.BackColor = System.Drawing.Color.LawnGreen;
+            this.select_car_button_1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.select_car_button_1.Location = new System.Drawing.Point(109, 434);
+            this.select_car_button_1.Name = "select_car_button_1";
+            this.select_car_button_1.Size = new System.Drawing.Size(137, 48);
+            this.select_car_button_1.TabIndex = 41;
+            this.select_car_button_1.Text = "SELECT";
+            this.select_car_button_1.UseVisualStyleBackColor = false;
+            this.select_car_button_1.Click += new System.EventHandler(this.select_car_button_1_Click);
+            // 
+            // select_car_button_2
+            // 
+            this.select_car_button_2.BackColor = System.Drawing.Color.LawnGreen;
+            this.select_car_button_2.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.select_car_button_2.Location = new System.Drawing.Point(345, 434);
+            this.select_car_button_2.Name = "select_car_button_2";
+            this.select_car_button_2.Size = new System.Drawing.Size(137, 48);
+            this.select_car_button_2.TabIndex = 42;
+            this.select_car_button_2.Text = "SELECT";
+            this.select_car_button_2.UseVisualStyleBackColor = false;
+            this.select_car_button_2.Click += new System.EventHandler(this.select_car_button_2_Click);
+            // 
+            // select_car_button_3
+            // 
+            this.select_car_button_3.BackColor = System.Drawing.Color.LawnGreen;
+            this.select_car_button_3.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.select_car_button_3.Location = new System.Drawing.Point(572, 434);
+            this.select_car_button_3.Name = "select_car_button_3";
+            this.select_car_button_3.Size = new System.Drawing.Size(137, 48);
+            this.select_car_button_3.TabIndex = 43;
+            this.select_car_button_3.Text = "SELECT";
+            this.select_car_button_3.UseVisualStyleBackColor = false;
+            this.select_car_button_3.Click += new System.EventHandler(this.select_car_button_3_Click);
+            // 
+            // select_car_button_4
+            // 
+            this.select_car_button_4.BackColor = System.Drawing.Color.LawnGreen;
+            this.select_car_button_4.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.select_car_button_4.Location = new System.Drawing.Point(794, 434);
+            this.select_car_button_4.Name = "select_car_button_4";
+            this.select_car_button_4.Size = new System.Drawing.Size(137, 48);
+            this.select_car_button_4.TabIndex = 44;
+            this.select_car_button_4.Text = "SELECT";
+            this.select_car_button_4.UseVisualStyleBackColor = false;
+            this.select_car_button_4.Click += new System.EventHandler(this.select_car_button_4_Click);
+            // 
+            // select_car_button_5
+            // 
+            this.select_car_button_5.BackColor = System.Drawing.Color.LawnGreen;
+            this.select_car_button_5.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.select_car_button_5.Location = new System.Drawing.Point(109, 796);
+            this.select_car_button_5.Name = "select_car_button_5";
+            this.select_car_button_5.Size = new System.Drawing.Size(137, 48);
+            this.select_car_button_5.TabIndex = 45;
+            this.select_car_button_5.Text = "SELECT";
+            this.select_car_button_5.UseVisualStyleBackColor = false;
+            this.select_car_button_5.Click += new System.EventHandler(this.select_car_button_5_Click);
+            // 
+            // select_car_button_6
+            // 
+            this.select_car_button_6.BackColor = System.Drawing.Color.LawnGreen;
+            this.select_car_button_6.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.select_car_button_6.Location = new System.Drawing.Point(345, 796);
+            this.select_car_button_6.Name = "select_car_button_6";
+            this.select_car_button_6.Size = new System.Drawing.Size(137, 48);
+            this.select_car_button_6.TabIndex = 46;
+            this.select_car_button_6.Text = "SELECT";
+            this.select_car_button_6.UseVisualStyleBackColor = false;
+            this.select_car_button_6.Click += new System.EventHandler(this.select_car_button_6_Click);
+            // 
+            // select_car_button_7
+            // 
+            this.select_car_button_7.BackColor = System.Drawing.Color.LawnGreen;
+            this.select_car_button_7.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.select_car_button_7.Location = new System.Drawing.Point(572, 796);
+            this.select_car_button_7.Name = "select_car_button_7";
+            this.select_car_button_7.Size = new System.Drawing.Size(137, 48);
+            this.select_car_button_7.TabIndex = 47;
+            this.select_car_button_7.Text = "SELECT";
+            this.select_car_button_7.UseVisualStyleBackColor = false;
+            this.select_car_button_7.Click += new System.EventHandler(this.select_car_button_7_Click);
+            // 
+            // select_car_button_8
+            // 
+            this.select_car_button_8.BackColor = System.Drawing.Color.LawnGreen;
+            this.select_car_button_8.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.select_car_button_8.Location = new System.Drawing.Point(794, 796);
+            this.select_car_button_8.Name = "select_car_button_8";
+            this.select_car_button_8.Size = new System.Drawing.Size(137, 48);
+            this.select_car_button_8.TabIndex = 48;
+            this.select_car_button_8.Text = "SELECT";
+            this.select_car_button_8.UseVisualStyleBackColor = false;
+            this.select_car_button_8.Click += new System.EventHandler(this.select_car_button_8_Click);
+            // 
+            // car_change_button
+            // 
+            this.car_change_button.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.car_change_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.car_change_button.ForeColor = System.Drawing.Color.Red;
+            this.car_change_button.Location = new System.Drawing.Point(12, 21);
+            this.car_change_button.Name = "car_change_button";
+            this.car_change_button.Size = new System.Drawing.Size(135, 96);
+            this.car_change_button.TabIndex = 49;
+            this.car_change_button.Text = "Change car";
+            this.car_change_button.UseVisualStyleBackColor = false;
+            this.car_change_button.Click += new System.EventHandler(this.car_change_button_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -307,6 +588,25 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1030, 1100);
+            this.Controls.Add(this.car_change_button);
+            this.Controls.Add(this.select_car_button_8);
+            this.Controls.Add(this.select_car_button_7);
+            this.Controls.Add(this.select_car_button_6);
+            this.Controls.Add(this.select_car_button_5);
+            this.Controls.Add(this.select_car_button_4);
+            this.Controls.Add(this.select_car_button_3);
+            this.Controls.Add(this.select_car_button_2);
+            this.Controls.Add(this.select_car_button_1);
+            this.Controls.Add(this.selected_car6);
+            this.Controls.Add(this.selected_car7);
+            this.Controls.Add(this.selected_car8);
+            this.Controls.Add(this.selected_car5);
+            this.Controls.Add(this.selected_car2);
+            this.Controls.Add(this.selected_car3);
+            this.Controls.Add(this.selected_car4);
+            this.Controls.Add(this.selected_car1);
+            this.Controls.Add(this.car_Select_box);
+            this.Controls.Add(this.car_select_menu_bg);
             this.Controls.Add(this.box_record);
             this.Controls.Add(this.box_score);
             this.Controls.Add(this.label_record);
@@ -347,6 +647,15 @@
             ((System.ComponentModel.ISupportInitialize)(this.bg3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.box_coin)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.box_coin_score)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.car_select_menu_bg)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.selected_car1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.selected_car4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.selected_car3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.selected_car2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.selected_car6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.selected_car7)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.selected_car8)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.selected_car5)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -374,6 +683,26 @@
         private System.Windows.Forms.PictureBox box_coin;
         private System.Windows.Forms.TextBox box_coins;
         private System.Windows.Forms.PictureBox box_coin_score;
+        private System.Windows.Forms.TextBox car_Select_box;
+        private System.Windows.Forms.PictureBox car_select_menu_bg;
+        private System.Windows.Forms.PictureBox selected_car1;
+        private System.Windows.Forms.PictureBox selected_car4;
+        private System.Windows.Forms.PictureBox selected_car3;
+        private System.Windows.Forms.PictureBox selected_car2;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.PictureBox selected_car6;
+        private System.Windows.Forms.PictureBox selected_car7;
+        private System.Windows.Forms.PictureBox selected_car8;
+        private System.Windows.Forms.PictureBox selected_car5;
+        private System.Windows.Forms.Button select_car_button_1;
+        private System.Windows.Forms.Button select_car_button_2;
+        private System.Windows.Forms.Button select_car_button_3;
+        private System.Windows.Forms.Button select_car_button_4;
+        private System.Windows.Forms.Button select_car_button_5;
+        private System.Windows.Forms.Button select_car_button_6;
+        private System.Windows.Forms.Button select_car_button_7;
+        private System.Windows.Forms.Button select_car_button_8;
+        private System.Windows.Forms.Button car_change_button;
     }
 }
 
